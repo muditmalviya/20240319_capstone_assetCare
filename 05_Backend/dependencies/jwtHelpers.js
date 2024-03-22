@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 const secret = process.env.JWT_SECRET;
-const User = require("../models/User");
+const User = require("../models/user.model");
 const mongoose = require("mongoose");
 
 /** Middleware helper function to verify JWT token
@@ -54,4 +54,41 @@ async function getUserMiddleware(req, res, next) {
   next();
 }
 
-module.exports = { verifyJwt, getUserFromId, getUserMiddleware };
+async function checkRole(req, res, next) {
+  try {
+    const user = req.body.user_id;
+    console.log("User:", user); // Log user object
+    // if (!user || !user.role || user.role.trim().toLowerCase() !== 'operator') {
+    //   return res.status(403).json({ message: "You don't have rights to do this functionality" });
+    // }
+    next();
+  } catch (error) {
+    console.error("Error in checkRole middleware:", error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+}
+
+async function isAdmin (req, res, next) {
+  try {
+    // Assuming req.user.role contains the user's role fetched from the database
+    console.log(req.user)
+    const userRole = req.user.role;
+
+    // Check if the user's role is admin
+    if (userRole !== 'admin') {
+      return res.status(403).json({ message: 'Forbidden: only admins can access this route' });
+    }
+
+    // If the user is an admin, call the next middleware or route handler
+    next();
+  } catch (error) {
+    console.error('Error in isAdmin middleware:', error);
+    return res.status(500).json({ message: 'Internal server error' });
+  }
+};
+
+
+
+
+
+module.exports = { verifyJwt, getUserFromId, getUserMiddleware, checkRole, isAdmin};
