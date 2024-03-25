@@ -1,0 +1,15 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+.navbar{
+  color: blue;
+  background-color:#D0D3D9;
+}
+.signup-button{
+  margin-left: 15px;
+  color: #38b9f1;
+}
+
+.keshav{
+  background-color: #38b9f1;
+}
