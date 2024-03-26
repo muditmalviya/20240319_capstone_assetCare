@@ -13,6 +13,7 @@ import { ProfileOComponent } from './profile-o/profile-o.component';
 import { ProfileTComponent } from './profile-t/profile-t.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { OpenIssueAComponent } from './open-issue-a/open-issue-a.component';
 
 @Component({
   selector: 'app-root',

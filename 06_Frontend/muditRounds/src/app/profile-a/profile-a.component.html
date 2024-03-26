@@ -1,5 +1,9 @@
 <body>
     <div class="container" *ngIf="user">
+        <div class="btn">
+            <button id="button1" (click)="onOpenedIssueClick()">Opened Issue</button>
+            <button id="button2" (click)="onClosedIssueClick()">Closed Issue</button>
+        </div>
         <div class="card">
             <div class="card__text">
                 <div class="card__img">

@@ -1,0 +1,50 @@
+<div>
+    <h2>Open Issues</h2>
+    
+    <div class="tableone">
+        <h3>Available Technicians:-</h3>
+        <table>
+            <thead>
+              <tr>
+                <th>Technician ID</th>  
+                <th>Technician Username</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let availtech of availtechs">
+                <td>{{ availtech._id }}</td>  
+                <td>{{ availtech.username }}</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    
+    <div class="tabletwo">
+        <h3>Pending issues:-</h3>
+        <table>
+            <thead>
+              <tr>
+                <th>Issue ID</th>  
+                <th>User ID</th>
+                <th>Status</th>
+                <th>Asset Name</th>
+                <th>Assign Technician</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let issue of issues">
+                <td>{{ issue._id }}</td>  
+                <td>{{ issue.user_id }}</td>
+                <td>{{ issue.status }}</td>
+                <td>{{ issue.asset_name }}</td>
+                <td>
+                    <input type="text" [(ngModel)]="issue.user_id_tech">
+                    <button (click)="assignTechnician(issue._id, issue.user_id_tech)">Assign</button>
+                  </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    
+  </div>
+  

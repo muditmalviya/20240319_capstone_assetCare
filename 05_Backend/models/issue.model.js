@@ -14,11 +14,11 @@ const IssueSchema = new mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
-    // asset_id: {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'Asset',
-    //     required: true
-    // },
+    asset_name:{
+        type: String,
+        ref: "Asset.name",
+        required: true
+    },
     status: {
         type: Boolean,
         required: true

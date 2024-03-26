@@ -48,6 +48,7 @@ exports.create = async (req, res) => {
   // Creating a new issue instance with the data from the request body
   const issue = new Issue({
     user_id: req.user.userId, // get user ID from JWT
+    asset_name: req.body.asset_name, // add asset_name field
     status: req.body.status,
     energy_consumption: req.body.energy_consumption,
     hours_of_operation: req.body.hours_of_operation,

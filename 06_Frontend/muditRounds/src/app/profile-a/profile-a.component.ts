@@ -22,6 +22,12 @@ export class ProfileAComponent {
     private route: ActivatedRoute,
     private router : Router
   ) { }
+  onOpenedIssueClick(){
+    this.router.navigate(['/openedIssue']);
+  }
+  onClosedIssueClick(){
+    this.router.navigate(['/closedIssue']);
+  }
 
   ngOnInit() {
     this.fetchUser();

@@ -59,3 +59,17 @@
   .card__img img {
     width: 100%;
   }
+
+  button {
+    width: 50%;
+    height: 40px;
+    background: #023535;
+    /* box-shadow: 0 0 10px #0ef; */
+    font-size: 16px;
+    color: #f2e8e8;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+  }

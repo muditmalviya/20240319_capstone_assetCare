@@ -23,6 +23,13 @@ export class ProfileOComponent implements OnInit{
     private router : Router
   ) { }
 
+  onRaiseIssueClick(){
+    this.router.navigate(['/raiseIssue']);
+  }
+  onHistoryIssueClick(){
+    this.router.navigate(['/historyIssue']);
+  }
+
   ngOnInit() {
     this.fetchUser();
   }

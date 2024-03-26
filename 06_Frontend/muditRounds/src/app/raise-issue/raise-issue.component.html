@@ -1,47 +1,6 @@
 <!-- 
 <body>
 
-<h1><a href="http://designvkp.com/create-responsive-forms-using-html-css/" rel="dofollow" target="_blank">Create Responsive HTML CSS Form</a></h1>
-
-  <form action="takeaction.php" method="post">
-  
-    <h1>RAISE ISSUE</h1>
-    
-    <fieldset>
-      <legend><span class="number">1</span>Enter The Asset Current Data</legend>
-      <label for="name">Asset name:</label>
-      <input type="text" id="name" name="asset_name">
-      
-      <label for="universityname">Energy Consumption (in "kWh"):</label>
-      <input type="email" id="mail" name="user_email">
-      
-      <label for="cityname">Hours of Operation (in "minutes"):</label>
-      <input type="email" id="mail" name="user_email">
-      
-      <label for="mail">Noise Level (in "dB"):</label>
-      <input type="email" id="mail" name="user_email">
-      
-      <label for="contactnumber">Temperature (in "K"):</label>
-      <input type="text" id="contactno" name="user_number">
-
-      <label for="mail">Physical Condition:</label>
-      <input type="email" id="mail" name="user_email">
-    </fieldset>
-    
-    <fieldset>
-      <legend><span class="number">2</span>Explanation</legend>
-      <label for="bio">Detailed Information On Asset Condition:</label>
-      <textarea id="bio" name="user_bio"></textarea>
-    </fieldset>
-    <button type="submit">Submit Issue</button>
-  </form>
-  
-</body> -->
-
-
-
-<body>
-
   <h1><a href="http://designvkp.com/create-responsive-forms-using-html-css/" rel="dofollow" target="_blank">Create Responsive HTML CSS Form</a></h1>
   
     <form action="takeaction.php" method="post">
@@ -77,4 +36,40 @@
     </form>
     
   </body>
+   -->
+
+
+   <!-- raise-issue.component.html -->
+
+   <form (ngSubmit)="submitForm()" #issueForm="ngForm">
+    <h1>RAISE ISSUE</h1>
+    
+    <fieldset>
+      <legend><span class="number">1</span>Enter The Asset Current Data</legend>
+      <label for="name">Asset name:</label>
+      <input type="text" id="name" name="asset_name" [(ngModel)]="assetName" required>
+      
+      <label for="energyconsumption">Energy Consumption (in "kWh"):</label>
+      <input type="text" id="energyconsumption" name="energyconsumption" [(ngModel)]="energyConsumption" required>
+      
+      <label for="operationtime">Hours of Operation (in "minutes"):</label>
+      <input type="text" id="operationtime" name="operationtime" [(ngModel)]="hoursOfOperation" required>
+      
+      <label for="noiselevel">Noise Level (in "dB"):</label>
+      <input type="text" id="noiselevel" name="noiselevel" [(ngModel)]="noiseLevel" required>
+      
+      <label for="temp">Temperature (in "K"):</label>
+      <input type="text" id="temp" name="temp" [(ngModel)]="temperature" required>
   
+      <label for="condition">Physical Condition:</label>
+      <input type="text" id="condition" name="condition" [(ngModel)]="physicalCondition" required>
+    </fieldset>
+    
+    <fieldset>
+      <legend><span class="number">2</span>Explanation</legend>
+      <label for="extraDetails">Detailed Information On Asset Condition:</label>
+      <textarea id="extraDetails" name="extraDetails" [(ngModel)]="description" required></textarea>
+    </fieldset>
+    
+    <button type="submit" [disabled]="!issueForm.valid">Submit Issue</button>
+  </form>
