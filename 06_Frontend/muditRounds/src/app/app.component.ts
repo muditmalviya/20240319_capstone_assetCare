@@ -11,13 +11,15 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { ProfileAComponent } from './profile-a/profile-a.component';
 import { ProfileOComponent } from './profile-o/profile-o.component';
 import { ProfileTComponent } from './profile-t/profile-t.component';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, NavbarComponent, LoginComponent, SignupComponent, ProfileComponent,
             RaiseIssueComponent, HttpClientModule, FormsModule, HomepageComponent, ProfileAComponent,
-          ProfileOComponent, ProfileTComponent],
+          ProfileOComponent, ProfileTComponent, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

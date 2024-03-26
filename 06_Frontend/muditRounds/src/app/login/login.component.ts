@@ -62,10 +62,11 @@ export class LoginComponent {
           const token = response.token;
           const userRole = response.role; // assuming you are returning userRole from your backend
           this.authService.setToken(token);
+          this.authService.setUser(response.user);
           // Check if login was successful
           switch(userRole) {
             case 'operator':
-              this.router.navigate(['./operatorPage']);
+              this.router.navigate(['/operatorPage']);
               break;
             case 'technician':
               this.router.navigate(['/technicianPage']);

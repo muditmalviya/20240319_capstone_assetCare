@@ -3,7 +3,14 @@
     justify-content: center;
     align-items: center;
 }
+.home{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
+}
 .image img {
     margin-top: 30px;
     width: 100%;
@@ -11,6 +18,7 @@
     height: auto;
 }
 .content{
+    width: 80%;
     margin-top: 40px;
     font-family: 'Lato', sans-serif;
     font-weight: bold;

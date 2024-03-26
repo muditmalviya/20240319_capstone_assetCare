@@ -20,7 +20,7 @@
   .container {
     width: 350px;
     height: 390px;
-    background-color: #71bfe9;
+    background-color: #0CABA8;
     padding: 20px;
     border-radius: 15px;
   }
@@ -45,7 +45,7 @@
   }
   
   .card__header {
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold;
   }
   

@@ -55,7 +55,7 @@ async function register(req, res) {
   
       // Save the new user document to the database
       await newUser.save();
-  
+      console.log("SUMIT CALLING");
       // Respond with success message
       res.status(201).json({ message: "User created successfully" });
     } catch (error) {
