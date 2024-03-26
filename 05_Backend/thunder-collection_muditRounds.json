@@ -1,0 +1,271 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "muditRounds",
+    "dateExported": "2024-03-26T09:22:16.197Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "a37d0125-ebef-4232-8fad-145c1e2ac7c4",
+            "colId": "9a5ba29a-4f04-46d1-b14e-04029d463851",
+            "containerId": "",
+            "name": "signup",
+            "url": "http://localhost:3000/auth/signup",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-03-21T12:01:00.785Z",
+            "modified": "2024-03-22T08:51:50.282Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"username\": \"Shubmam Singh\",\n    \"email\": \"singhss@gmail.com\",\n    \"password\": \"root123@A\",\n    \"phoneno\": 1425679865,\n    \"role\": \"technician\",\n    \"isAvailable\": true\n}",
+                "form": []
+            },
+            "reqType": "post",
+            "tests": []
+        },
+        {
+            "_id": "604b5651-9d45-4a84-9dc3-974da25a15dc",
+            "colId": "9a5ba29a-4f04-46d1-b14e-04029d463851",
+            "containerId": "",
+            "name": "signin",
+            "url": "http://localhost:3000/auth/signin",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-03-21T12:18:44.756Z",
+            "modified": "2024-03-22T19:24:56.277Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"username\": \"keshavkhandelwal\",\n  \"password\": \"root123@A\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "cb9fb75d-a7d9-4132-a396-9f0b0bd03613",
+            "colId": "9a5ba29a-4f04-46d1-b14e-04029d463851",
+            "containerId": "",
+            "name": "Raise Issue",
+            "url": "http://localhost:3000/api/issues",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-03-21T16:35:12.028Z",
+            "modified": "2024-03-22T19:25:59.914Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"asset_name\": \"Inventor\",\n  \"status\": true,\n  \"energy_consumption\": 10000,\n  \"hours_of_operation\": 99988,\n  \"noise_level\": 70,\n  \"temperature\": 25,\n  \"physical_condition\": \"medium\",\n  \"vibration\": 5,\n  \"description\": \"The machine is producing an unusual sound during operation.\"\n}\n",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWZjNzkwYmYxMzEwNzk5OTc3OGZlYzMiLCJpYXQiOjE3MTExMzU0OTYsImV4cCI6MTcxMTEzOTA5Nn0.cSUg4tJKGik31XquoCxyAlXgiezwX7RjTXPjBjYnNAY"
+            },
+            "tests": []
+        },
+        {
+            "_id": "9dbed254-e1b7-43cb-a359-a95af67e456d",
+            "colId": "9a5ba29a-4f04-46d1-b14e-04029d463851",
+            "containerId": "",
+            "name": "Profile Info",
+            "url": "http://localhost:3000/api/profile",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-03-21T18:08:13.032Z",
+            "modified": "2024-03-22T06:00:48.187Z",
+            "headers": [],
+            "params": [],
+            "reqType": "get",
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWZkMWUyMTUyYWNmYzQ5ZjgzNjg2NTIiLCJpYXQiOjE3MTEwODcxNjQsImV4cCI6MTcxMTA5MDc2NH0.WMLH13oBH3NaAiEbDNRgrZxxopbNX4tSCCy_37rPrus"
+            },
+            "tests": []
+        },
+        {
+            "_id": "10ad83de-947d-4c40-8259-97f90ffa15d7",
+            "colId": "9a5ba29a-4f04-46d1-b14e-04029d463851",
+            "containerId": "",
+            "name": "Issue History",
+            "url": "http://localhost:3000/api/issues",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2024-03-21T21:02:18.211Z",
+            "modified": "2024-03-22T06:01:21.080Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWZkMWUyMTUyYWNmYzQ5ZjgzNjg2NTIiLCJpYXQiOjE3MTEwODcxNjQsImV4cCI6MTcxMTA5MDc2NH0.WMLH13oBH3NaAiEbDNRgrZxxopbNX4tSCCy_37rPrus"
+                }
+            ],
+            "params": [],
+            "reqType": "get",
+            "tests": []
+        },
+        {
+            "_id": "5ce0828c-dc0a-40c9-b277-549aea1d649e",
+            "colId": "9a5ba29a-4f04-46d1-b14e-04029d463851",
+            "containerId": "",
+            "name": "Admin Open Issues",
+            "url": "http://localhost:3000/api/open",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2024-03-21T21:25:01.678Z",
+            "modified": "2024-03-22T07:16:12.297Z",
+            "headers": [],
+            "params": [],
+            "reqType": "get",
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWZjMjQyNTNlM2I3MDlhYjM4OGI5ZDIiLCJpYXQiOjE3MTEwOTE3NjAsImV4cCI6MTcxMTA5NTM2MH0.ww1OonOk_9jYfaU9nDuG6dvU0OaHeygrs7kLEAell6k"
+            },
+            "tests": []
+        },
+        {
+            "_id": "fa5a8e1f-b807-43ad-a38c-d3e955f04c6e",
+            "colId": "9a5ba29a-4f04-46d1-b14e-04029d463851",
+            "containerId": "",
+            "name": "Admin Close Issues",
+            "url": "http://localhost:3000/api/close",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2024-03-21T22:37:35.474Z",
+            "modified": "2024-03-22T07:19:25.034Z",
+            "headers": [],
+            "params": [],
+            "reqType": "get",
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWZjMjQyNTNlM2I3MDlhYjM4OGI5ZDIiLCJpYXQiOjE3MTEwOTE3NjAsImV4cCI6MTcxMTA5NTM2MH0.ww1OonOk_9jYfaU9nDuG6dvU0OaHeygrs7kLEAell6k"
+            },
+            "tests": []
+        },
+        {
+            "_id": "470d78c0-f7be-4d99-8c02-2440e9be577a",
+            "colId": "9a5ba29a-4f04-46d1-b14e-04029d463851",
+            "containerId": "",
+            "name": "Avaliable Technicians",
+            "url": "http://localhost:3000/api/availtech",
+            "method": "GET",
+            "sortNum": 90000,
+            "created": "2024-03-22T08:49:06.762Z",
+            "modified": "2024-03-22T09:29:49.610Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWZjMjQyNTNlM2I3MDlhYjM4OGI5ZDIiLCJpYXQiOjE3MTEwOTk1ODEsImV4cCI6MTcxMTEwMzE4MX0.yqed7DOBw6glAIedy6clb50vTvIkw0EWmLqp4SdkYoA"
+            },
+            "tests": []
+        },
+        {
+            "_id": "293f0378-b36d-492a-b5fe-a75f6f1759d5",
+            "colId": "9a5ba29a-4f04-46d1-b14e-04029d463851",
+            "containerId": "",
+            "name": "Assigning Issues",
+            "url": "http://localhost:3000/api/assignIssue",
+            "method": "PUT",
+            "sortNum": 100000,
+            "created": "2024-03-22T09:19:31.432Z",
+            "modified": "2024-03-22T09:26:34.664Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n  \"issue_id\": \"65fc99457e5203460c8c6fdd\",\r\n  \"user_id_tech\": \"65fd46a676be18f9ef39d77e\"\r\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWZjMjQyNTNlM2I3MDlhYjM4OGI5ZDIiLCJpYXQiOjE3MTEwOTk1ODEsImV4cCI6MTcxMTEwMzE4MX0.yqed7DOBw6glAIedy6clb50vTvIkw0EWmLqp4SdkYoA"
+            },
+            "tests": []
+        },
+        {
+            "_id": "745ae3bb-95d8-4ae0-8ff8-4b75bd1be98a",
+            "colId": "9a5ba29a-4f04-46d1-b14e-04029d463851",
+            "containerId": "",
+            "name": "Assigned Issues",
+            "url": "http://localhost:3000/api/assignedIssues",
+            "method": "GET",
+            "sortNum": 120000,
+            "created": "2024-03-22T09:42:22.102Z",
+            "modified": "2024-03-22T10:01:19.711Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWZkNDZhNjc2YmUxOGY5ZWYzOWQ3N2UiLCJpYXQiOjE3MTExMDE2NjYsImV4cCI6MTcxMTEwNTI2Nn0.D0sKxAGXU-hwyQbm9OC-T49AuJz_QHK4pmov-Z31LGk"
+            },
+            "tests": []
+        },
+        {
+            "_id": "28a7e9e7-876a-4798-9423-78d783f6b3e0",
+            "colId": "9a5ba29a-4f04-46d1-b14e-04029d463851",
+            "containerId": "",
+            "name": "Change Status",
+            "url": "http://localhost:3000/api/changestatus",
+            "method": "PUT",
+            "sortNum": 130000,
+            "created": "2024-03-22T10:30:46.201Z",
+            "modified": "2024-03-22T10:33:13.906Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"issue_id\": \"65fc99457e5203460c8c6fdd\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWZkNDZhNjc2YmUxOGY5ZWYzOWQ3N2UiLCJpYXQiOjE3MTExMDE2NjYsImV4cCI6MTcxMTEwNTI2Nn0.D0sKxAGXU-hwyQbm9OC-T49AuJz_QHK4pmov-Z31LGk"
+            },
+            "tests": []
+        },
+        {
+            "_id": "0274b259-2601-4e9b-b03e-ff35b0257e79",
+            "colId": "9a5ba29a-4f04-46d1-b14e-04029d463851",
+            "containerId": "",
+            "name": "History Tech",
+            "url": "http://localhost:3000/api/history",
+            "method": "GET",
+            "sortNum": 160000,
+            "created": "2024-03-22T10:46:14.027Z",
+            "modified": "2024-03-22T10:46:42.378Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWZkNDZhNjc2YmUxOGY5ZWYzOWQ3N2UiLCJpYXQiOjE3MTExMDE2NjYsImV4cCI6MTcxMTEwNTI2Nn0.D0sKxAGXU-hwyQbm9OC-T49AuJz_QHK4pmov-Z31LGk"
+            },
+            "tests": []
+        },
+        {
+            "_id": "007216cd-fb7e-4ff7-a6af-e0af451c6682",
+            "colId": "9a5ba29a-4f04-46d1-b14e-04029d463851",
+            "containerId": "",
+            "name": "post asset",
+            "url": "http://localhost:3000/asset/postAsset",
+            "method": "POST",
+            "sortNum": 170000,
+            "created": "2024-03-22T11:37:16.293Z",
+            "modified": "2024-03-22T18:01:32.640Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Inventor\",\n  \"num_issues_raised\": 0,\n  \"properties\": \"Some properties of the asset\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWZjMjQyNTNlM2I3MDlhYjM4OGI5ZDIiLCJpYXQiOjE3MTExMzAzNjEsImV4cCI6MTcxMTEzMzk2MX0.-6qh7vhnzIETTuNGvwAp5qWObqrqZjQJeg0ZO5EA5yc"
+            },
+            "tests": []
+        }
+    ]
+}
