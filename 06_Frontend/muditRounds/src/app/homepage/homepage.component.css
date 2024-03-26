@@ -1,0 +1,25 @@
+.image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image img {
+    margin-top: 30px;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+.content{
+    margin-top: 40px;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    font-size: larger;
+    color: #0FC2C0;
+}
+
+@media screen and (max-width: 768px) {
+    .image img {
+        width: 80%;
+    }
+}
