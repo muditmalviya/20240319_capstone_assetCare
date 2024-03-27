@@ -1,1 +1,22 @@
-<p>close-issue-a works!</p>
+<div>
+    <h2>Closed Issues</h2>
+
+    <div class="tableone">
+        <table>
+            <thead>
+              <tr>
+                <th>Issue ID</th>  
+                <th>Issue Raised By</th>
+                <th>Issue Fixed By</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let close of closes">
+                <td>{{ close._id }}</td>  
+                <td>{{ close.user_id }}</td>
+                <td>{{ close.user_id_tech }}</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>

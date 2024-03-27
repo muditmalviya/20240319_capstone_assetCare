@@ -14,13 +14,17 @@ import { ProfileTComponent } from './profile-t/profile-t.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OpenIssueAComponent } from './open-issue-a/open-issue-a.component';
+import { HistoryOperatorComponent } from './history-operator/history-operator.component';
+import { HistoryTechnicianComponent } from './history-technician/history-technician.component';
+import { AssignedTechComponent } from './assigned-tech/assigned-tech.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, NavbarComponent, LoginComponent, SignupComponent, ProfileComponent,
             RaiseIssueComponent, HttpClientModule, FormsModule, HomepageComponent, ProfileAComponent,
-          ProfileOComponent, ProfileTComponent, CommonModule],
+          ProfileOComponent, ProfileTComponent, CommonModule, HistoryOperatorComponent, HistoryTechnicianComponent,
+        AssignedTechComponent, ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

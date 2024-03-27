@@ -1,0 +1,26 @@
+<div>
+        <h3>Assigned Issues:-</h3>
+        <table>
+            <thead>
+              <tr>
+                <th>Issue ID</th>  
+                <th>Asset ID</th>
+                <th>Issue Status</th>
+                <th>Asset Name</th>
+                <th>Change Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let assignedIssue of assignedIssues">
+                <td>{{ assignedIssue._id }}</td>  
+                <td>{{ assignedIssue.user_id }}</td>
+                <td>{{ assignedIssue.status }}</td>
+                <td>{{ assignedIssue.asset_name }}</td>
+                <td>
+                    <!-- <input type="text" [(ngModel)]="issue.user_id_tech"> -->
+                    <button (click)="changeStatus(assignedIssue._id)">ISUUE FIXED</button>
+                  </td>
+              </tr>
+            </tbody>
+          </table>
+</div>

@@ -8,7 +8,7 @@ exports.getAssignedIssues = async (req, res) => {
         res.status(401).json({message: "Forbidden access. Only for technician"})
       }
     try {
-      const issues = await Issue.find({ user_id_tech: req.user._id });
+      const issues = await Issue.find({ user_id_tech: req.user._id , status: true});
       res.status(200).json(issues);
     } catch (err) {
       console.error(err);

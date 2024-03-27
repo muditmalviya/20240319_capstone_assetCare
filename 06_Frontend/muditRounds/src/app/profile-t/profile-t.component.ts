@@ -24,6 +24,13 @@ export class ProfileTComponent implements OnInit{
     private router : Router
   ) { }
 
+  onAssignedToTechClick(){
+    this.router.navigate(['/assignedTech']);
+  }
+  onHistoryTechClick(){
+    this.router.navigate(['/historyIssueTech']);
+  }
+
   ngOnInit() {
     this.fetchUser();
   }

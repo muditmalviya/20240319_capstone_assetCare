@@ -8,6 +8,8 @@ import { SignupComponent } from './signup/signup.component';
 import { RaiseIssueComponent } from './raise-issue/raise-issue.component';
 import { OpenIssueAComponent } from './open-issue-a/open-issue-a.component';
 import { CloseIssueAComponent } from './close-issue-a/close-issue-a.component';
+import { HistoryTechnicianComponent } from './history-technician/history-technician.component';
+import { AssignedTechComponent } from './assigned-tech/assigned-tech.component';
 
 
 export const routes: Routes = [
@@ -19,5 +21,7 @@ export const routes: Routes = [
     { path: 'technicianPage', component: ProfileTComponent},
     { path: 'raiseIssue', component: RaiseIssueComponent},
     { path: 'openedIssue', component: OpenIssueAComponent},
-    { path: 'closedIssue', component: CloseIssueAComponent}
+    { path: 'closedIssue', component: CloseIssueAComponent},
+    { path: 'assignedTech', component:AssignedTechComponent},
+    { path: 'historyIssueTech', component:HistoryTechnicianComponent}
 ];
