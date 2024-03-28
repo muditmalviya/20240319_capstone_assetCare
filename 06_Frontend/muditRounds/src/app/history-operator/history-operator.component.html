@@ -1,1 +1,22 @@
-<p>history-operator works!</p>
+<div>
+    <h2>Issues Fixed</h2>
+    
+    <div class="tableone">
+        <table>
+            <thead>
+              <tr>
+                <th>Issue ID</th>  
+                <th>Asset Name</th>
+                <th>Issue Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let history of historys">
+                <td>{{ history._id }}</td>  
+                <td>{{ history.asset_name }}</td>
+                <td>{{history.status}}</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>

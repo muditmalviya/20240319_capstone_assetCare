@@ -1,26 +1,43 @@
-import { Component } from '@angular/core';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [MatToolbarModule, MatButtonModule, MatIconModule],
+  imports: [CommonModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit{
+  menuType: String = 'default';
 
   constructor(private router: Router) {}
+
+  ngOnInit(): void {
+    this.router.events.subscribe((val: any) => {
+      if (val instanceof NavigationEnd) {
+        if (localStorage.getItem('token')) {
+          console.log("User verified");
+          this.menuType = 'verified';
+        } else {
+          console.log("User not verified");
+          this.menuType = 'default';
+        }
+      }
+    });
+  }
+
   onLoginClick() {
-    // replace '/yourRoute' with the route you want to navigate to
     this.router.navigate(['/login']);
   }
 
   onSignupClick() {
-    // replace '/yourRoute' with the route you want to navigate to
     this.router.navigate(['/signup']);
+  }
+
+  logout() {
+    localStorage.removeItem('token'); // Clear user token
+    this.router.navigate(['/login']); // Redirect to login page
   }
 }
