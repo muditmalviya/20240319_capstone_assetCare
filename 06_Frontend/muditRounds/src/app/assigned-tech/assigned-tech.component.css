@@ -1,4 +1,4 @@
-table {
+/* table {
     border-collapse: collapse;
     width: 100%;
   }
@@ -16,4 +16,37 @@ table {
   .tableone{
     margin-bottom: 45px;
   }
+   */
+
+   table {
+    border-collapse: collapse;
+    width: 100%;
+  }
   
+   th, td {
+    border: 1px solid #023535;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  th {
+    background-color: #aceceb;
+  }
+
+  .tableone{
+    margin-bottom: 45px;
+  }
+
+  button{
+    background-color: #008F8C;
+    color: #fff;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    margin-left: 5px;
+  }
+  button:hover{
+    background-color: #015958;
+  }

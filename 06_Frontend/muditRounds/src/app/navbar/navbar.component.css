@@ -3,13 +3,13 @@ label.logo{
   font-size: 25px;
   /* line-height: 80px; */
   /* padding: 0 100px; */
-  font-weight: bold;
+  /* font-weight: 4005px; */
 }
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #0FC2C0;
+  background-color: #cef5f5;
   padding: 10px 20px;
 }
 .login-button, .signup-button {
@@ -30,4 +30,34 @@ label.logo{
 .login-signup-container, .logged-in-menu {
   display: flex;
   align-items: center;
+}
+
+/* Media query for screens smaller than 600px */
+@media only screen and (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+  }
+  .login-signup-container, .logged-in-menu {
+    justify-content: center;
+    margin-top: 10px;
+  }
+}
+
+/* Media query for screens smaller than 444px */
+@media only screen and (max-width: 444px) {
+  .navbar {
+    flex-direction: column;
+    padding: 5px 10px; /* Reduce padding */
+  }
+  .login-signup-container, .logged-in-menu {
+    justify-content: center;
+    margin-top: 5px; /* Reduce margin */
+    flex-direction: column; /* Stack buttons vertically */
+  }
+  .login-button, .signup-button, .logout-button {
+    margin-bottom: 5px; /* Add space between stacked buttons */
+  }
+  .login-button button, .signup-button button, .logout-button button {
+    padding: 5px 10px; /* Reduce button padding */
+  }
 }

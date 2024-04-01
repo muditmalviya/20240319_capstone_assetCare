@@ -32,7 +32,7 @@ export class HistoryTechnicianComponent implements OnInit{
         if (token) {
           const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     
-          this.http.get<any[]>('http://localhost:3000/api/history', { headers: headers })
+          this.http.get<any[]>('http://localhost:3000/technician/history', { headers: headers })
           .subscribe(
             (response) => {
               this.historys = response;

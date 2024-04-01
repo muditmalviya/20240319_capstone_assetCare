@@ -90,6 +90,7 @@ assignTechnician(issueId: string, technicianId: string) {
       (response) => {
         console.log('Issue assigned successfully:', response);
         // You may want to update the UI or take further actions here
+        window.location.reload();
       },
       (error) => {
         console.error('Error assigning technician:', error);

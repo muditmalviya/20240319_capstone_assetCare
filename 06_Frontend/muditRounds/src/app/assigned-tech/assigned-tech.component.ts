@@ -33,7 +33,7 @@ export class AssignedTechComponent implements OnInit{
       if (token) {
         const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
   
-        this.http.get<any[]>('http://localhost:3000/admin/assignedIssues', { headers: headers })
+        this.http.get<any[]>('http://localhost:3000/technician/assignedIssues', { headers: headers })
         .subscribe(
           (response) => {
             this.assignedIssues = response;
@@ -58,11 +58,12 @@ changeStatus(issueId: string){
   }
 
   const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-  this.http.put<any>('http://localhost:3000/api/changestatus', requestBody, {headers})
+  this.http.put<any>('http://localhost:3000/technician/changestatus', requestBody, {headers})
     .subscribe(
       (response) => {
         console.log('Issue assigned successfully:', response);
         // You may want to update the UI or take further actions here
+        window.location.reload();
       },
       (error) => {
         console.error('Error assigning technician:', error);
