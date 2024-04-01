@@ -43,7 +43,7 @@ export class ProfileTComponent implements OnInit{
     {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-      this.http.get<any>('http://localhost:3000/api/profile', { headers: headers })
+      this.http.get<any>('http://localhost:3000/user/profile', { headers: headers })
       .subscribe((item: User) => {
         console.log('Profile fetched:', item);
         this.user = item;

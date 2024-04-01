@@ -50,7 +50,12 @@ const IssueSchema = new mongoose.Schema({
     description: {
         type: String,
         required: true
-    }
+    },
+    // Timestamp of when the blog post was created
+  timestamp: {
+    type: Date,
+    default: Date.now
+  }
 });
 
 

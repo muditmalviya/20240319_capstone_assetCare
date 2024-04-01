@@ -31,7 +31,7 @@ export class CloseIssueAComponent {
     if (token) {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-      this.http.get<any[]>('http://localhost:3000/api/close', { headers: headers })
+      this.http.get<any[]>('http://localhost:3000/admin/close', { headers: headers })
       .subscribe(
         (response) => {
           this.closes = response;

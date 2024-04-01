@@ -4,6 +4,21 @@ const User = require('../models/user.model')
 const Asset = require('../models/asset.model')
 
 // Function to get all open issues
+// exports.getAllOpenIssues = async (req, res) => {
+//   if(req.user.role!=='admin'){
+//     res.status(401).json({message: "Forbidden access. Only for admin permission is granted"})
+//   }
+//   try {
+//       const issues = await Issue.find({ status: true });
+//       res.status(200).json(issues);
+//   } catch (err) {
+//       console.error(err);
+      
+//       res.status(500).json({ message: 'Internal server error' });
+//   }
+// };
+
+// Function to get all open issues
 exports.getAllOpenIssues = async (req, res) => {
   // Check if the user is an admin
   if(req.user.role!=='admin'){
@@ -12,7 +27,8 @@ exports.getAllOpenIssues = async (req, res) => {
   }
   try {
       // Find all issues where status is true (open)
-      const issues = await Issue.find({ status: true });
+      const issues = await Issue.find({ status: true })
+        .populate('user_id', 'username') // This line is added
       // Return the issues
       res.status(200).json(issues);
   } catch (err) {
@@ -22,6 +38,8 @@ exports.getAllOpenIssues = async (req, res) => {
       res.status(500).json({ message: 'Internal server error' });
   }
 };
+
+
 
 // Function to get all closed issues
 exports.getAllCloseIssues = async (req, res) => {

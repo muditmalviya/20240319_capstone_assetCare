@@ -34,7 +34,7 @@ export class OpenIssueAComponent implements OnInit {
     if (token) {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-      this.http.get<any[]>('http://localhost:3000/api/availtech', { headers: headers })
+      this.http.get<any[]>('http://localhost:3000/admin/availtech', { headers: headers })
       .subscribe(
         (response) => {
           this.availtechs = response;
@@ -54,7 +54,7 @@ export class OpenIssueAComponent implements OnInit {
     if (token) {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-    this.http.get<any[]>('http://localhost:3000/api/open', { headers: headers })
+    this.http.get<any[]>('http://localhost:3000/admin/open', { headers: headers })
       .subscribe(
         (response) => {
           this.issues = response;
@@ -85,7 +85,7 @@ assignTechnician(issueId: string, technicianId: string) {
   const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
 
-  this.http.put<any>('http://localhost:3000/api/assignIssue', requestBody, {headers})
+  this.http.put<any>('http://localhost:3000/admin/assignIssue', requestBody, {headers})
     .subscribe(
       (response) => {
         console.log('Issue assigned successfully:', response);

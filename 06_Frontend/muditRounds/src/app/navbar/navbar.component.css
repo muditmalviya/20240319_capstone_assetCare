@@ -15,7 +15,7 @@ label.logo{
 .login-button, .signup-button {
   margin-left: 5px;
 }
-.login-button button, .signup-button button, .logged-in-menu{
+.login-button button, .signup-button button, .logout-button button{
   background-color: #008F8C;
   color: #fff;
   border: none;
@@ -24,10 +24,10 @@ label.logo{
   cursor: pointer;
   outline: none;
 }
-.login-button button:hover, .signup-button button:hover, .logged-in-menu:hover {
+.login-button button:hover, .signup-button button:hover, .logout-button:hover {
   background-color: #015958;
 }
-.login-signup-container {
+.login-signup-container, .logged-in-menu {
   display: flex;
   align-items: center;
 }

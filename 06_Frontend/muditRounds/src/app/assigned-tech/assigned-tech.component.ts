@@ -33,7 +33,7 @@ export class AssignedTechComponent implements OnInit{
       if (token) {
         const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
   
-        this.http.get<any[]>('http://localhost:3000/api/assignedIssues', { headers: headers })
+        this.http.get<any[]>('http://localhost:3000/admin/assignedIssues', { headers: headers })
         .subscribe(
           (response) => {
             this.assignedIssues = response;

@@ -25,7 +25,7 @@
             <thead>
               <tr>
                 <th>Issue ID</th>  
-                <th>User ID</th>
+                <th>Issue Raised by</th>
                 <th>Status</th>
                 <th>Asset Name</th>
                 <th>Assign Technician</th>
@@ -34,7 +34,7 @@
             <tbody>
               <tr *ngFor="let issue of issues">
                 <td>{{ issue._id }}</td>  
-                <td>{{ issue.user_id }}</td>
+                <td>{{ issue.user_id.username }}</td>
                 <td>{{ issue.status }}</td>
                 <td>{{ issue.asset_name }}</td>
                 <td>
