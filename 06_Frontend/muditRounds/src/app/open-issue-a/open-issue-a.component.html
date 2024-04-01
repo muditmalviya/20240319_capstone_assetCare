@@ -24,7 +24,8 @@
         <table>
             <thead>
               <tr>
-                <th>Issue ID</th>  
+                <th>Issue ID</th>
+                <th>Created At</th>  
                 <th>Issue Raised by</th>
                 <th>Status</th>
                 <th>Asset Name</th>
@@ -34,6 +35,7 @@
             <tbody>
               <tr *ngFor="let issue of issues">
                 <td>{{ issue._id }}</td>  
+                <td>{{issue.timestamp}}</td>
                 <td>{{ issue.user_id.username }}</td>
                 <td>{{ issue.status }}</td>
                 <td>{{ issue.asset_name }}</td>

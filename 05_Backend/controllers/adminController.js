@@ -50,7 +50,9 @@ exports.getAllCloseIssues = async (req, res) => {
   }
   try {
       // Find all issues where status is false (closed)
-      const issues = await Issue.find({ status: false });
+      const issues = await Issue.find({ status: false })
+        .populate('user_id', 'username') // Populate username for user_id
+        .populate('user_id_tech', 'username'); // Populate username for user_id_tech
       // Return the issues
       res.status(200).json(issues);
   } catch (err) {

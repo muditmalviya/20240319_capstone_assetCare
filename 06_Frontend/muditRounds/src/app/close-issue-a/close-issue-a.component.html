@@ -13,8 +13,8 @@
             <tbody>
               <tr *ngFor="let close of closes">
                 <td>{{ close._id }}</td>  
-                <td>{{ close.user_id }}</td>
-                <td>{{ close.user_id_tech }}</td>
+                <td>{{ close.user_id.username }}</td>
+                <td>{{ close.user_id_tech.username }}</td>
               </tr>
             </tbody>
           </table>
