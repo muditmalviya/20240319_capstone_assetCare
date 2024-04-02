@@ -1,48 +1,28 @@
 <div>
-    <h2>Closed Issues</h2>
+  <!-- Heading for closed issues -->
+  <h2>Closed Issues</h2>
 
-    <div class="tableone">
-        <table>
-            <thead>
+  <!-- Container for the table -->
+  <div class="tableone">
+      <table>
+          <thead>
+              <!-- Table header row -->
               <tr>
-                <th>Issue ID</th>  
-                <th>Issue Raised By</th>
-                <th>Issue Fixed By</th>
+                  <!-- Column headers -->
+                  <th>Issue ID</th>  
+                  <th>Issue Raised By</th>
+                  <th>Issue Fixed By</th>
               </tr>
-            </thead>
-            <tbody>
+          </thead>
+          <tbody>
+              <!-- Loop through closed issues and display each one -->
               <tr *ngFor="let close of closes">
-                <td>{{ close._id }}</td>  
-                <td>{{ close.user_id.username }}</td>
-                <td>{{ close.user_id_tech.username }}</td>
+                  <!-- Displaying issue details in each column -->
+                  <td>{{ close._id }}</td>  
+                  <td>{{ close.user_id.username }}</td>
+                  <td>{{ close.user_id_tech.username }}</td>
               </tr>
-            </tbody>
-          </table>
-    </div>
+          </tbody>
+      </table>
+  </div>
 </div>
-
-<!-- <div>
-  <h1>Fixed Table header</h1>
-  <div class="tbl-header">
-    <table cellpadding="0" cellspacing="0" border="0">
-      <thead>
-        <tr>
-          <th>Issue ID</th>
-          <th>Issue Raised By</th>
-          <th>Issue Fixed By</th>
-        </tr>
-      </thead>
-    </table>
-  </div>
-  <div class="tbl-content">
-    <table cellpadding="0" cellspacing="0" border="0">
-      <tbody>
-        <tr *ngFor="let close of closes">
-          <td>{{ close._id }}</td>
-          <td>{{ close.user_id.username }} </td>
-          <td>{{ close.user_id_tech.username }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div> -->

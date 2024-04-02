@@ -1,28 +1,34 @@
 <div>
-        <h3>Assigned Issues:-</h3>
-        <table>
-            <thead>
-              <tr>
-                <th>Issue ID</th>  
-                <th>Asset ID</th>
-                <th>Issue Status</th>
-                <th>Asset Name</th>
-                <th>Issue Description</th>
-                <th>Change Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let assignedIssue of assignedIssues">
-                <td>{{ assignedIssue._id }}</td>  
-                <td>{{ assignedIssue.user_id }}</td>
-                <td>{{ assignedIssue.status }}</td>
-                <td>{{ assignedIssue.asset_name }}</td>
-                <td>{{assignedIssue.description}}</td>
-                <td>
-                    <!-- <input type="text" [(ngModel)]="issue.user_id_tech"> -->
-                    <button (click)="changeStatus(assignedIssue._id)">ISUUE FIXED</button>
-                  </td>
-              </tr>
-            </tbody>
-          </table>
+  <!-- Heading for assigned issues -->
+  <h3>Assigned Issues:-</h3>
+  <!-- Table to display assigned issues -->
+  <table>
+      <thead>
+          <!-- Table header row -->
+          <tr>
+              <!-- Column headers -->
+              <th>Issue ID</th>  
+              <th>Asset ID</th>
+              <th>Issue Status</th>
+              <th>Asset Name</th>
+              <th>Issue Description</th>
+              <th>Change Status</th>
+          </tr>
+      </thead>
+      <tbody>
+          <!-- Loop through assigned issues and display each one -->
+          <tr *ngFor="let assignedIssue of assignedIssues">
+              <!-- Displaying issue details in each column -->
+              <td>{{ assignedIssue._id }}</td>  
+              <td>{{ assignedIssue.user_id }}</td>
+              <td>{{ assignedIssue.status }}</td>
+              <td>{{ assignedIssue.asset_name }}</td>
+              <td>{{ assignedIssue.description }}</td>
+              <!-- Button to change status of the issue -->
+              <td>
+                  <button (click)="changeStatus(assignedIssue._id)">ISUUE FIXED</button>
+              </td>
+          </tr>
+      </tbody>
+  </table>
 </div>

@@ -1,45 +1,25 @@
-<!-- <header class="navbar">
-  <label class="logo">mRounds</label>
-  <div  class="login-signup-container">
-    <div class="login-button">
-      <button (click)="onLoginClick()" style="color: white;">Login</button>
-    </div>
-    <div class="signup-button">
-      <button (click)="onSignupClick()" style="color: white;">Sign up</button>
-    </div>
-  </div>
-</header> -->
-
-<!-- <header class="navbar">
-  <label class="logo">mRounds</label>
-  <div *ngIf="menuType === 'default'" class="login-signup-container">
-    <div class="login-button">
-      <button (click)="onLoginClick()" style="color: white;">Login</button>
-    </div>
-    <div class="signup-button">
-      <button (click)="onSignupClick()" style="color: white;">Sign up</button>
-    </div>
-  </div>
-  <div *ngIf="menuType === 'verified'" class="logged-in-menu">
-    <button (click)="logout()" style="color: white;">Logout</button>
-  </div>
-</header> -->
-
-
 <header class="navbar">
+  <!-- Logo section -->
   <a (click)="onLogoClick()"><label class="logo">mRounds</label></a>
+  
+  <!-- Default menu items -->
   <div *ngIf="menuType === 'default'" class="login-signup-container">
+    <!-- Login button -->
     <div class="login-button">
       <button (click)="onLoginClick()" style="color: white;">Login</button>
     </div>
+    <!-- Sign up button -->
     <div class="signup-button">
       <button (click)="onSignupClick()" style="color: white;">Sign up</button>
     </div>
   </div>
+  
+  <!-- Verified menu items -->
   <div *ngIf="menuType === 'verified'" class="logged-in-menu">
-    <!-- Add menu items for logged-in users here -->
+    <!-- Logout button -->
     <div class="logout-button">
       <button (click)="logout()" style="color: white;">Logout</button>
     </div>
+    <!-- Add more menu items for logged-in users here -->
   </div>
 </header>

@@ -1,75 +1,56 @@
-<!-- 
-<body>
-
-  <h1><a href="http://designvkp.com/create-responsive-forms-using-html-css/" rel="dofollow" target="_blank">Create Responsive HTML CSS Form</a></h1>
-  
-    <form action="takeaction.php" method="post">
-    
-      <h1>RAISE ISSUE</h1>
-      
-      <fieldset>
-        <legend><span class="number">1</span>Enter The Asset Current Data</legend>
-        <label for="name">Asset name:</label>
-        <input type="text" id="name" name="asset_name">
-        
-        <label for="energyconsumption">Energy Consumption (in "kWh"):</label>
-        <input type="energyconsumption" id="energyconsumption" name="energyconsumption">
-        
-        <label for="operationtime">Hours of Operation (in "minutes"):</label>
-        <input type="operationtime" id="operationtime" name="operationtime">
-        
-        <label for="noiselevel">Noise Level (in "dB"):</label>
-        <input type="noiselevel" id="noiselevel" name="noiselevel">
-        
-        <label for="temp">Temperature (in "K"):</label>
-        <input type="temp" id="temp" name="temp">
-  
-        <label for="condition">Physical Condition:</label>
-        <input type="condition" id="condition" name="condition">
-      </fieldset>
-      <fieldset>
-        <legend><span class="number">2</span>Explanation</legend>
-        <label for="extraDetails">Detailed Information On Asset Condition:</label>
-        <textarea id="extraDetails" name="extraDetails"></textarea>
-      </fieldset>
-      <button type="submit">Submit Issue</button>
-    </form>
-    
-  </body>
-   -->
-
-
-   <!-- raise-issue.component.html -->
-
-   <form (ngSubmit)="submitForm()" #issueForm="ngForm">
-    <h1>RAISE ISSUE</h1>
-    
-    <fieldset>
-      <legend><span class="number">1</span>Enter The Asset Current Data</legend>
+<form (ngSubmit)="submitForm()" #issueForm="ngForm">
+  <!-- Asset Data Section -->
+  <fieldset>
+    <legend><span class="number">1</span>Enter The Asset Current Data</legend>
+    <!-- Asset Name Input -->
+    <div class="form-group">
       <label for="name">Asset name:</label>
-      <input type="text" id="name" name="asset_name" [(ngModel)]="assetName" required>
-      
+      <input type="text" id="name" name="asset_name" [(ngModel)]="assetName" required #assetNameInput="ngModel" [class.invalid]="assetNameInput.invalid && assetNameInput.touched">
+      <span class="error-message" *ngIf="assetNameInput.invalid && assetNameInput.touched">Input required</span>
+    </div>
+    <!-- Energy Consumption Input -->
+    <div class="form-group">
       <label for="energyconsumption">Energy Consumption (in "kWh"):</label>
-      <input type="text" id="energyconsumption" name="energyconsumption" [(ngModel)]="energyConsumption" required>
-      
+      <input type="text" id="energyconsumption" name="energyconsumption" [(ngModel)]="energyConsumption" required #energyConsumptionInput="ngModel" [class.invalid]="energyConsumptionInput.invalid && energyConsumptionInput.touched">
+      <span class="error-message" *ngIf="energyConsumptionInput.invalid && energyConsumptionInput.touched">Input required</span>
+    </div>
+    <!-- Hours of Operation Input -->
+    <div class="form-group">
       <label for="operationtime">Hours of Operation (in "minutes"):</label>
-      <input type="text" id="operationtime" name="operationtime" [(ngModel)]="hoursOfOperation" required>
-      
+      <input type="text" id="operationtime" name="operationtime" [(ngModel)]="hoursOfOperation" required #hoursOfOperationInput="ngModel" [class.invalid]="hoursOfOperationInput.invalid && hoursOfOperationInput.touched">
+      <span class="error-message" *ngIf="hoursOfOperationInput.invalid && hoursOfOperationInput.touched">Input required</span>
+    </div>
+    <!-- Noise Level Input -->
+    <div class="form-group">
       <label for="noiselevel">Noise Level (in "dB"):</label>
-      <input type="text" id="noiselevel" name="noiselevel" [(ngModel)]="noiseLevel" required>
-      
+      <input type="text" id="noiselevel" name="noiselevel" [(ngModel)]="noiseLevel" required #noiseLevelInput="ngModel" [class.invalid]="noiseLevelInput.invalid && noiseLevelInput.touched">
+      <span class="error-message" *ngIf="noiseLevelInput.invalid && noiseLevelInput.touched">Input required</span>
+    </div>
+    <!-- Temperature Input -->
+    <div class="form-group">
       <label for="temp">Temperature (in "K"):</label>
-      <input type="text" id="temp" name="temp" [(ngModel)]="temperature" required>
-  
+      <input type="text" id="temp" name="temp" [(ngModel)]="temperature" required #temperatureInput="ngModel" [class.invalid]="temperatureInput.invalid && temperatureInput.touched">
+      <span class="error-message" *ngIf="temperatureInput.invalid && temperatureInput.touched">Input required</span>
+    </div>
+    <!-- Physical Condition Input -->
+    <div class="form-group">
       <label for="condition">Physical Condition:</label>
-      <input type="text" id="condition" name="condition" [(ngModel)]="physicalCondition" required>
-    </fieldset>
-    
-    <fieldset>
-      <legend><span class="number">2</span>Explanation</legend>
+      <input type="text" id="condition" name="condition" [(ngModel)]="physicalCondition" required #physicalConditionInput="ngModel" [class.invalid]="physicalConditionInput.invalid && physicalConditionInput.touched">
+      <span class="error-message" *ngIf="physicalConditionInput.invalid && physicalConditionInput.touched">Input required</span>
+    </div>
+  </fieldset>
+  
+  <!-- Explanation Section -->
+  <fieldset>
+    <legend><span class="number">2</span>Explanation</legend>
+    <!-- Detailed Information Input -->
+    <div class="form-group">
       <label for="extraDetails">Detailed Information On Asset Condition:</label>
-      <textarea id="extraDetails" name="extraDetails" [(ngModel)]="description" required></textarea>
-    </fieldset>
-    
-    <button type="submit" [disabled]="!issueForm.valid">Submit Issue</button>
-  </form>
+      <textarea id="extraDetails" name="extraDetails" [(ngModel)]="description" required #descriptionInput="ngModel" [class.invalid]="descriptionInput.invalid && descriptionInput.touched"></textarea>
+      <span class="error-message" *ngIf="descriptionInput.invalid && descriptionInput.touched">Input required</span>
+    </div>
+  </fieldset>
+  
+  <!-- Submit Button -->
+  <button type="submit" [disabled]="!issueForm.valid">Submit Issue</button>
+</form>

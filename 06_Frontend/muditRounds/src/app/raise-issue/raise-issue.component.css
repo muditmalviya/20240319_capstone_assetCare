@@ -65,7 +65,7 @@ select  {
 button  {
     padding:  19px 39px 18px 39px;
     color:  #FFF;
-    background-color: #71bfe9;
+    background-color: #015958;
     font-size:  18px;
     text-align:  center;
     font-style:  normal;
@@ -95,7 +95,7 @@ label.light  {
     display:  inline;
 }
 .number  {
-    background-color: #71bfe9;
+    background-color: #015958;
     color:  #fff;
     height:  30px;
     width:  30px;
@@ -107,6 +107,20 @@ label.light  {
     text-shadow:  0 1px 0 rgba(255, 255, 255, 0.2);
     border-radius:  100%;
 }
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+}
+
+.invalid {
+  border-color: red;
+}
+
 @media screen and (min-width: 480px)  {
     form  {
     max-width:  480px;

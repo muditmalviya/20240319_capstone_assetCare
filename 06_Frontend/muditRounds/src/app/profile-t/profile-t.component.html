@@ -1,19 +1,29 @@
 <body>
+    <!-- Container to hold user profile information -->
     <div class="container" *ngIf="user">
+        <!-- Buttons for navigating to assigned issues and issue history -->
         <div class="btn">
             <button id="button1" (click)="onAssignedToTechClick()">Assigned Issue</button>
             <button id="button2" (click)="onHistoryTechClick()">Issue History</button>
         </div>
+        <!-- User profile card -->
         <div class="card">
             <div class="card__text">
+                <!-- User profile image -->
                 <div class="card__img">
                     <img src="https://static-00.iconduck.com/assets.00/profile-circle-icon-512x512-zxne30hp.png" alt="">
                 </div>
+                <!-- User profile details -->
                 <div class="card__detail">
+                    <!-- Displaying user's name -->
                     <h1 class="card__header">Name:- {{ user.username }}</h1>
+                    <!-- Displaying user's email -->
                     <h2 class="card__header">Email-ID:- {{ user.email }}</h2>
+                    <!-- Displaying user's role -->
                     <h2 class="card__header">Role:- {{ user.role }}</h2>
+                    <!-- Displaying user's contact number -->
                     <h2 class="card__header">Contact No:- {{ user.phoneno }}</h2>
+                    <!-- Displaying user's availability -->
                     <h2 class="card__header">Availability:- {{ user.isAvailable }}</h2>
                 </div>
             </div>

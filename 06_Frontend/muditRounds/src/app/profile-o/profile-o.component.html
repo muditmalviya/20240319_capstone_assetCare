@@ -1,15 +1,25 @@
 <body>
+    <!-- Main container with *ngIf directive to conditionally render based on user -->
     <div class="container" *ngIf="user">
+        <!-- Button container -->
         <div class="btn">
+            <!-- Button to raise issue -->
             <button id="button1" (click)="onRaiseIssueClick()">Raise Issue</button>
+            <!-- Button to view issue history -->
             <button id="button2" (click)="onHistoryIssueClick()">Issue History</button>
         </div>
+        <!-- Card container -->
         <div class="card">
+            <!-- Card text section -->
             <div class="card__text">
+                <!-- Card image section -->
                 <div class="card__img">
-                    <img src="https://static-00.iconduck.com/assets.00/profile-circle-icon-512x512-zxne30hp.png" alt="">
+                    <!-- Profile image -->
+                    <img src="https://static-00.iconduck.com/assets.00/profile-circle-icon-512x512-zxne30hp.png" alt="Profile Image">
                 </div>
+                <!-- Card detail section -->
                 <div class="card__detail">
+                    <!-- Displaying user details -->
                     <h1 class="card__header">Name:- {{ user.username }}</h1>
                     <h2 class="card__header">Email-ID:- {{ user.email }}</h2>
                     <h2 class="card__header">Role:- {{ user.role }}</h2>

@@ -1,22 +1,28 @@
 <div>
-    <h2>Issues History</h2>
-    
-    <div class="tableone">
-        <table>
-            <thead>
+  <!-- Heading for issues history -->
+  <h2>Issues History</h2>
+  
+  <!-- Container for the table -->
+  <div class="tableone">
+      <table>
+          <thead>
+              <!-- Table header row -->
               <tr>
-                <th>Issue ID</th>  
-                <th>Asset Name</th>
-                <th>Issue Status</th>
+                  <!-- Column headers -->
+                  <th>Issue ID</th>  
+                  <th>Asset Name</th>
+                  <th>Issue Status</th>
               </tr>
-            </thead>
-            <tbody>
+          </thead>
+          <tbody>
+              <!-- Loop through issue history and display each one -->
               <tr *ngFor="let history of historys">
-                <td>{{ history._id }}</td>  
-                <td>{{ history.asset_name }}</td>
-                <td>{{history.status}}</td>
+                  <!-- Displaying issue details in each column -->
+                  <td>{{ history._id }}</td>  
+                  <td>{{ history.asset_name }}</td>
+                  <td>{{ history.status }}</td>
               </tr>
-            </tbody>
-          </table>
-    </div>
+          </tbody>
+      </table>
+  </div>
 </div>
