@@ -27,7 +27,7 @@
 
 
 <header class="navbar">
-  <label class="logo">mRounds</label>
+  <a (click)="onLogoClick()"><label class="logo">mRounds</label></a>
   <div *ngIf="menuType === 'default'" class="login-signup-container">
     <div class="login-button">
       <button (click)="onLoginClick()" style="color: white;">Login</button>

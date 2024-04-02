@@ -7,6 +7,7 @@
                 <th>Asset ID</th>
                 <th>Issue Status</th>
                 <th>Asset Name</th>
+                <th>Issue Description</th>
                 <th>Change Status</th>
               </tr>
             </thead>
@@ -16,6 +17,7 @@
                 <td>{{ assignedIssue.user_id }}</td>
                 <td>{{ assignedIssue.status }}</td>
                 <td>{{ assignedIssue.asset_name }}</td>
+                <td>{{assignedIssue.description}}</td>
                 <td>
                     <!-- <input type="text" [(ngModel)]="issue.user_id_tech"> -->
                     <button (click)="changeStatus(assignedIssue._id)">ISUUE FIXED</button>

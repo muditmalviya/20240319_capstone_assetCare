@@ -11,6 +11,7 @@ import { CloseIssueAComponent } from './close-issue-a/close-issue-a.component';
 import { HistoryTechnicianComponent } from './history-technician/history-technician.component';
 import { AssignedTechComponent } from './assigned-tech/assigned-tech.component';
 import { HistoryOperatorComponent } from './history-operator/history-operator.component';
+import { NotfoundpageComponent } from './notfoundpage/notfoundpage.component';
 
 
 export const routes: Routes = [
@@ -25,5 +26,6 @@ export const routes: Routes = [
     { path: 'closedIssue', component: CloseIssueAComponent},
     { path: 'assignedTech', component:AssignedTechComponent},
     { path: 'historyIssueTech', component:HistoryTechnicianComponent},
-    {path: 'historyIssue', component: HistoryOperatorComponent}
+    {path: 'historyIssue', component: HistoryOperatorComponent},
+    { path: '**', component: NotfoundpageComponent }
 ];

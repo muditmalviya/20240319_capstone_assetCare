@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    /* background-color: #a03131; */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+  }
+  
+  .container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  h1 {
+    font-size: 4rem;
+    color: #023535;
+  }
+  
+  p {
+    font-size: 1.5rem;
+    color: #015958;
+  }
+  
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }

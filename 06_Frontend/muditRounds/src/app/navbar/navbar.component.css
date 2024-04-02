@@ -9,7 +9,7 @@ label.logo{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #cef5f5;
+  background-color: #a7e2e2;
   padding: 10px 20px;
 }
 .login-button, .signup-button {
@@ -47,7 +47,7 @@ label.logo{
 @media only screen and (max-width: 444px) {
   .navbar {
     flex-direction: column;
-    padding: 5px 10px; /* Reduce padding */
+    /* padding: 5px 10px; Reduce padding */
   }
   .login-signup-container, .logged-in-menu {
     justify-content: center;

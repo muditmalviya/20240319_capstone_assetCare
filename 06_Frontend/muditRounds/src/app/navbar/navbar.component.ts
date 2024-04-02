@@ -27,7 +27,10 @@ export class NavbarComponent implements OnInit{
       }
     });
   }
-
+  
+  onLogoClick(){
+    this.router.navigate(['/']);
+  }
   onLoginClick() {
     this.router.navigate(['/login']);
   }

@@ -24,20 +24,20 @@
         <table>
             <thead>
               <tr>
-                <th>Issue ID</th>
+                <!-- <th>Issue ID</th> -->
                 <th>Created At</th>  
                 <th>Issue Raised by</th>
-                <th>Status</th>
+                <th>Issue Description</th>
                 <th>Asset Name</th>
                 <th>Assign Technician</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let issue of issues">
-                <td>{{ issue._id }}</td>  
+                <!-- <td>{{ issue._id }}</td>   -->
                 <td>{{issue.timestamp}}</td>
                 <td>{{ issue.user_id.username }}</td>
-                <td>{{ issue.status }}</td>
+                <td>{{issue.description}}</td>
                 <td>{{ issue.asset_name }}</td>
                 <td>
                     <input type="text" [(ngModel)]="issue.user_id_tech">
