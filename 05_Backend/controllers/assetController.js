@@ -1,17 +1,23 @@
+/**
+ * Model for Asset
+ * @const
+ */
 const Asset = require('../models/asset.model');
-// Importing User model
-const User = require("../models/user.model");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
-require("dotenv").config();
 
+/**
+ * Controller function to create a new asset
+ * @param {object} req - The request object
+ * @param {object} res - The response object
+ * @returns {object} - Returns a JSON object containing the saved asset or an error message
+ */
 async function createAsset(req, res) {
-      // Check if the user is an admin
-      if (req.user.role !== 'admin') {
-        return res.status(403).json({ message: 'Forbidden: only admins can access this route' });
-      }
-   try {
-        // Create a new instance of the Asset model with data from the request body
+  try {
+    // Check if the user is an admin
+    if (req.user.role !== 'admin') {
+      return res.status(403).json({ message: 'Forbidden: only admins can access this route' });
+    }
+    
+    // Create a new instance of the Asset model with data from the request body
     const newAsset = new Asset(req.body);
     
     // Save the new asset to the database
@@ -24,6 +30,6 @@ async function createAsset(req, res) {
     console.error(error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
-};
+}
 
-module.exports = {createAsset}
+module.exports = { createAsset };

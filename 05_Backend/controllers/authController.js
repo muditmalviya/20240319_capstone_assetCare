@@ -17,7 +17,12 @@ const {
   passwordValidator,
 } = require("../dependencies/user");
 
-// Function to register a new user
+/**
+ * Controller function to register a new user
+ * @param {object} req - The request object
+ * @param {object} res - The response object
+ * @returns {object} - Returns a JSON object containing a success message or an error message
+ */
 async function register(req, res) {
     // Extracting user details from request body
     const { username, email, password, phoneno, role, isAvailable } = req.body;
@@ -66,7 +71,12 @@ async function register(req, res) {
     }
 }
 
-// Function to login a user
+/**
+ * Controller function to login a user
+ * @param {object} req - The request object
+ * @param {object} res - The response object
+ * @returns {object} - Returns a JSON object containing a JWT token or an error message
+ */
 async function login(req, res) {
     // Extracting username and password from request body
     const { username, password } = req.body;
@@ -103,7 +113,13 @@ async function login(req, res) {
       res.status(500).json({ message: "Internal Server Error" });
     }
 }
-
+/**
+ * Controller function to send password reset instructions to a user's email
+ * @param {object} req - The request object
+ * @param {object} res - The response object
+ * @param {function} next - The next middleware function
+ * @returns {object} - Returns a JSON object containing a success message or an error message
+ */
 const forgetPassword = async (req, res, next) => {
   const email = req.body.email;
 
@@ -196,7 +212,13 @@ const forgetPassword = async (req, res, next) => {
   }
 };
 
-
+/**
+ * Controller function to reset a user's password
+ * @param {object} req - The request object
+ * @param {object} res - The response object
+ * @param {function} next - The next middleware function
+ * @returns {object} - Returns a JSON object containing a success message or an error message
+ */
 const resetpassword = async (req, res, next) => {
   try {
     const { newPassword } = req.body;

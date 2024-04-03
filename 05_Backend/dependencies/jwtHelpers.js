@@ -53,7 +53,11 @@ async function getUserMiddleware(req, res, next) {
   req.user = user;
   next();
 }
-
+/** Middleware helper function to get and set the user object in request object
+ * @param {Object} req - request object
+ * @param {Object} res - response object
+ * @param {Function} next - next function to call
+ */
 async function checkRole(req, res, next) {
   try {
     const user = req.body.user_id;
@@ -67,7 +71,11 @@ async function checkRole(req, res, next) {
     return res.status(500).json({ message: "Internal server error" });
   }
 }
-
+/** Middleware helper function to get and set the user object in request object
+ * @param {Object} req - request object
+ * @param {Object} res - response object
+ * @param {Function} next - next function to call
+ */
 async function isAdmin (req, res, next) {
   try {
     // Assuming req.user.role contains the user's role fetched from the database
