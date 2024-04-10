@@ -20,10 +20,13 @@
 .content{
     width: 80%;
     margin-top: 40px;
-    font-family: 'Lato', sans-serif;
-    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 300;
     font-size: larger;
-    color: #015958;
+    color: #199e9b;
+    text-align: justify;
+  text-justify: inter-word;
+  background-color: white;
 }
 
 @media screen and (max-width: 768px) {

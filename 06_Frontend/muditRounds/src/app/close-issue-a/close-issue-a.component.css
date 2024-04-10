@@ -1,6 +1,11 @@
 table {
     border-collapse: collapse;
-    width: 100%;
+    width: 95%;
+    margin-left: 2.5%;
+  }
+
+  .ok h2{
+    margin-left: 2.5%;
   }
   
    th, td {
@@ -11,6 +16,10 @@ table {
   
   th {
     background-color: #aceceb;
+  }
+
+  h2{
+    justify-content: center;
   }
 
   .tableone{

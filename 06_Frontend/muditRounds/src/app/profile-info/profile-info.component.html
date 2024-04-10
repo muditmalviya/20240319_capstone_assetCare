@@ -1,0 +1,26 @@
+<body>
+    <div class="container" *ngIf="user">
+    <div class="btn">
+        <button id="button1" (click)="onButtonClick('assigned')">
+            {{ user.role === 'admin' ? 'Opened Issue' : (user.role === 'operator' ? 'Raise Issue' : 'Assigned Issue') }}
+        </button>
+        <button id="button2" (click)="onButtonClick('history')">
+            {{ user.role === 'admin' ? 'Closed Issue' : (user.role === 'operator' ? 'Issue History' : 'Issue History') }}
+        </button>
+    </div>
+    <div class="card">
+        <div class="card__text">
+            <div class="card__img">
+                <img src="https://static-00.iconduck.com/assets.00/profile-circle-icon-512x512-zxne30hp.png" alt="">
+            </div>
+            <div class="card__detail">
+                <h1 class="card__header">Name:- {{ user.username }}</h1>
+                <h2 class="card__header">Email-ID:- {{ user.email }}</h2>
+                <h2 class="card__header">Role:- {{ user.role }}</h2>
+                <h2 class="card__header">Contact No:- {{ user.phoneno }}</h2>
+                <h2 class="card__header">Availability:- {{ user.isAvailable }}</h2>
+            </div>
+        </div>
+    </div>
+</div>
+</body>

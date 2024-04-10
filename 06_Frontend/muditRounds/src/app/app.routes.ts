@@ -12,12 +12,14 @@ import { HistoryTechnicianComponent } from './history-technician/history-technic
 import { AssignedTechComponent } from './assigned-tech/assigned-tech.component';
 import { HistoryOperatorComponent } from './history-operator/history-operator.component';
 import { NotfoundpageComponent } from './notfoundpage/notfoundpage.component';
+import { ProfileInfoComponent } from './profile-info/profile-info.component';
 
 
 export const routes: Routes = [
     { path: '', component: HomepageComponent },
     { path: 'login', component: LoginComponent},
     { path: 'signup', component: SignupComponent},
+    { path: 'profile', component: ProfileInfoComponent},
     { path: 'operatorPage', component: ProfileOComponent},
     { path: 'adminPage', component: ProfileAComponent},
     { path: 'technicianPage', component: ProfileTComponent},

@@ -17,6 +17,7 @@ import { OpenIssueAComponent } from './open-issue-a/open-issue-a.component';
 import { HistoryOperatorComponent } from './history-operator/history-operator.component';
 import { HistoryTechnicianComponent } from './history-technician/history-technician.component';
 import { AssignedTechComponent } from './assigned-tech/assigned-tech.component';
+import { ProfileInfoComponent } from './profile-info/profile-info.component';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +25,7 @@ import { AssignedTechComponent } from './assigned-tech/assigned-tech.component';
   imports: [RouterOutlet, NavbarComponent, LoginComponent, SignupComponent, ProfileComponent,
             RaiseIssueComponent, HttpClientModule, FormsModule, HomepageComponent, ProfileAComponent,
           ProfileOComponent, ProfileTComponent, CommonModule, HistoryOperatorComponent, HistoryTechnicianComponent,
-        AssignedTechComponent, ],
+        AssignedTechComponent, ProfileInfoComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

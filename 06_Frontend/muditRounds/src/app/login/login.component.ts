@@ -55,17 +55,18 @@ export class LoginComponent {
           this.authService.setToken(token);
           this.authService.setUser(response.user);
           // Check if login was successful
-          switch (userRole) {
-            case 'operator':
-              this.router.navigate(['/operatorPage']);
-              break;
-            case 'technician':
-              this.router.navigate(['/technicianPage']);
-              break;
-            case 'admin':
-              this.router.navigate(['/adminPage']);
-              break;
-          }
+          // switch (userRole) {
+          //   case 'operator':
+          //     this.router.navigate(['/operatorPage']);
+          //     break;
+          //   case 'technician':
+          //     this.router.navigate(['/technicianPage']);
+          //     break;
+          //   case 'admin':
+          //     this.router.navigate(['/adminPage']);
+          //     break;
+          // }
+          this.router.navigate(['/profile']);
         },
         // Handling error response
         error: (error) => {

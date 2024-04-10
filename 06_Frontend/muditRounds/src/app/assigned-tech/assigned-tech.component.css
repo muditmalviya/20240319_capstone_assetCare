@@ -2,7 +2,11 @@
 
    table {
     border-collapse: collapse;
-    width: 100%;
+    width: 95%;
+    margin-left: 2.5%;
+  }
+  h2{
+    margin-left: 2.5%;
   }
   
    th, td {
