@@ -1,17 +1,17 @@
 <body>
     <div class="container" *ngIf="user">
     <div class="btn">
-        <button id="button1" (click)="onButtonClick('assigned')">
+        <button  id="button1" (click)="onButtonClick('assigned')">
             {{ user.role === 'admin' ? 'Opened Issue' : (user.role === 'operator' ? 'Raise Issue' : 'Assigned Issue') }}
         </button>
-        <button id="button2" (click)="onButtonClick('history')">
+        <button id="button1" (click)="onButtonClick('history')">
             {{ user.role === 'admin' ? 'Closed Issue' : (user.role === 'operator' ? 'Issue History' : 'Issue History') }}
         </button>
     </div>
     <div class="card">
         <div class="card__text">
             <div class="card__img">
-                <img src="https://static-00.iconduck.com/assets.00/profile-circle-icon-512x512-zxne30hp.png" alt="">
+                <img src="https://thumbs.dreamstime.com/z/businessman-avatar-image-beard-hairstyle-male-profile-vector-illustration-178545831.jpg?ct=jpeg" alt="">
             </div>
             <div class="card__detail">
                 <h1 class="card__header">Name:- {{ user.username }}</h1>

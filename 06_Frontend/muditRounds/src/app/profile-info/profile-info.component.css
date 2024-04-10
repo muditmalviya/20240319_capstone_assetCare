@@ -1,75 +1,109 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background-color: linear-gradient(135deg, #71b7e6, #9b59b6);
-    /* color: #fff; */
-    padding: 20px;
-  }
-  
-  .container {
-    width: 350px;
-    height: 390px;
-    background-color: #71bfe9;
-    padding: 20px;
-    border-radius: 15px;
-  }
-  
-  .card {
-    width: 100%;
-  }
-  
-  .card__text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .card__detail {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-    gap: 10px;
-  }
-  
-  .card__header {
-    font-size: 15px;
-    font-weight: bold;
-  }
-  
-  .card__img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    overflow: hidden;
-  }
-  
-  .card__img img {
-    width: 100%;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 
-  button {
-    width: 50%;
-    height: 40px;
-    background: #023535;
-    /* box-shadow: 0 0 10px #0ef; */
-    font-size: 16px;
-    color: #f2e8e8;
-    font-weight: 500;
-    cursor: pointer;
-    border-radius: 30px;
-    border: none;
-    outline: none;
-  }
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  /* background-color: linear-gradient(135deg, #71b7e6, #9b59b6); */
+  /* color: #fff; */
+  padding: 20px;
+}
+
+.container {
+  width: 360px;
+  height: 390px;
+  /* background-color: #71bfe9; */
+  /* background: linear-gradient(109.6deg, rgb(31, 179, 237) 11.2%, rgb(17, 106, 197) 91.1%); */
+  background: linear-gradient(to right, #0acffe 0%, #495aff 100%);
+  /* background: linear-gradient(109.1deg, rgb(42, 132, 201) 14.6%, rgb(47, 249, 233) 108.2%); */
+  padding: 20px;
+  border-radius: 15px;
+  gap: 10px ;
+  box-shadow: 0px 5px 10px rgba(0.2, 0.2, 0.2, 0.9);
+}
+
+.card {
+  width: 100%;
+}
+
+.card__text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card__detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.card__header {
+  font-size: 15px;
+  font-weight: bold;
+  color: aliceblue;
+  font-weight: 400;
+}
+
+.card__img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.card__img img {
+  width: 100%;
+}
+
+button {
+  width: 50%;
+  height: 40px;
+  /* background: #023535; */
+  /* background: linear-gradient(111.8deg, rgb(0, 104, 155) 19.8%, rgb(0, 173, 239) 92.1%); */
+  background: linear-gradient(65.5deg, rgb(23, 205, 205) -15.1%, rgb(23, 25, 95) 71.5%);
+  /* box-shadow: 0 0 10px #0ef; */
+  font-size: 16px;
+  color: #f2e8e8;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+}
+
+.btn {
+  display: flex; /* Make the container a flex container */
+  justify-content: space-between; /* Add space between the buttons */
+}
+
+.btn button {
+  width: calc(50% - 5px); /* Adjust button width to accommodate space */
+  height: 40px;
+  /* background: #198989; */
+  font-size: 16px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: #f2e8e8;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  margin-bottom: 10px ;
+}
+button:hover { background: linear-gradient(to right, #009688, #4CAF50); }
+
+#button:hover{
+  background: linear-gradient(to right, #009688, #4CAF50);
+}
