@@ -10,14 +10,14 @@ label.logo{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #a7e2e2;
+  background: linear-gradient(107deg, rgb(2, 108, 223) 27.4%, rgb(0, 255, 255) 92.7%);;
   padding: 10px 20px;
 }
 .login-button, .signup-button {
   margin-left: 5px;
 }
 .login-button button, .signup-button button, .logout-button button{
-  background-color: #008F8C;
+  background: linear-gradient(65.5deg, rgb(23, 205, 205) -15.1%, rgb(23, 25, 95) 71.5%);
   color: #fff;
   border: none;
   padding: 8px 16px;
@@ -26,7 +26,7 @@ label.logo{
   outline: none;
 }
 .login-button button:hover, .signup-button button:hover, .logout-button:hover {
-  background-color: #015958;
+  background: linear-gradient(to right, #009688, #4CAF50);
 }
 .login-signup-container, .logged-in-menu {
   display: flex;

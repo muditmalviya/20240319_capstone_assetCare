@@ -2,6 +2,7 @@ table {
     border-collapse: collapse;
     width: 95%;
     margin-left: 2.5%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
 
   .ok h2{
@@ -9,13 +10,14 @@ table {
   }
   
    th, td {
-    border: 1px solid #023535;
+    border: 3px solid #023535;
     text-align: left;
     padding: 8px;
   }
   
   th {
-    background-color: #aceceb;
+    color: aliceblue;
+    background: linear-gradient(to right, #0acffe 0%, #495aff 100%);
   }
 
   h2{
