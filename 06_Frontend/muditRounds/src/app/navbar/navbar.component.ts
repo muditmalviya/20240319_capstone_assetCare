@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common'; // Importing CommonModule for NgIf, NgFor, etc.
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar'; 
 
 @Component({
   selector: 'app-navbar',
@@ -12,7 +13,7 @@ import { Router, NavigationEnd } from '@angular/router';
 export class NavbarComponent implements OnInit {
   menuType: String = 'default'; // Variable to determine menu type (default/verified)
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
     // Subscribe to router events to update menuType based on user verification
@@ -48,5 +49,14 @@ export class NavbarComponent implements OnInit {
   logout() {
     localStorage.removeItem('token'); // Clear user token from local storage
     this.router.navigate(['/login']); // Redirect to login page
+  }
+  // Function to handle back button click
+  goBack() {
+    const currentUrl = this.router.url;
+  if (currentUrl === '/profile') {
+    this.snackBar.open('Already on main Page', 'Close', { duration: 3000 });
+  } else {
+    this.router.navigate(['/profile']); // Replace with your intended fallback URL if needed
+  }
   }
 }
