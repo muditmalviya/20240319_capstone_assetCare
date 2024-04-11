@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http'; // Importing HttpClient
 import { AuthService } from '../auth.service'; // Importing AuthService for authentication
 import { Router } from '@angular/router'; // Importing Router for navigation
 import { NgModule } from '@angular/core'; // Importing NgModule for NgModule decorator
+import { MatSnackBar } from '@angular/material/snack-bar'; 
 
 
 @Component({
@@ -25,7 +26,8 @@ export class LoginComponent {
     private formBuilder: FormBuilder,
     private http: HttpClient,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ) {
     // Initializing login form with form builder
     this.loginForm = this.formBuilder.group({
@@ -35,14 +37,47 @@ export class LoginComponent {
   }
 
   // Function to handle form submission
+  // onSubmit() {
+  //   console.log('submit button is press');
+  //   console.log('Form submitted successfully!');
+  //   const userData = {
+  //     username: this.username,
+  //     password: this.password,
+  //   };
+    
+  //   // Making POST request to login endpoint
+  //   this.http
+  //     .post<any>('http://localhost:3000/auth/signin', userData)
+  //     .subscribe({
+  //       // Handling successful response
+  //       next: async (response) => {
+  //         console.log('Login Successful', response);
+  //         const token = response.token;
+  //         const userRole = response.role; // assuming you are returning userRole from your backend
+  //         this.authService.setToken(token);
+  //         this.authService.setUser(response.user);
+  //         this.router.navigate(['/profile']);
+  //         this.snackBar.open('Login successful', 'Close', { duration: 3000 });
+  //       },
+  //       // Handling error response
+  //       error: (error) => {
+  //         console.error('Login failed:', error);
+  //         if (error.error && error.error.message === "passwords do not match") {
+  //           this.snackBar.open('Invalid username or password', 'Close', { duration: 3000 });
+  //         } else {
+  //           this.snackBar.open('Login failed', 'Close', { duration: 3000 });
+  //         }
+  //       }
+  //     });
+  // }
   onSubmit() {
-    console.log('submit button is press');
+    console.log('submit button is pressed');
     console.log('Form submitted successfully!');
     const userData = {
-      username: this.username,
-      password: this.password,
+      username: this.loginForm.value.username,
+      password: this.loginForm.value.password,
     };
-    
+  
     // Making POST request to login endpoint
     this.http
       .post<any>('http://localhost:3000/auth/signin', userData)
@@ -54,15 +89,22 @@ export class LoginComponent {
           const userRole = response.role; // assuming you are returning userRole from your backend
           this.authService.setToken(token);
           this.authService.setUser(response.user);
-          this.router.navigate(['/profile']);
+          // Only navigate to the profile page if login was successful
+          if (token) {
+            this.router.navigate(['/profile']);
+            this.snackBar.open('Login successful', 'Close', { duration: 3000 });
+          } else {
+            this.snackBar.open('Invalid username or password', 'Close', { duration: 3000 });
+          }
         },
         // Handling error response
         error: (error) => {
           console.error('Login failed:', error);
-          // Handle unsuccessful login (e.g., display error message)
+          this.snackBar.open('Login failed', 'Close', { duration: 3000 });
         }
       });
   }
+  
   
   // Function to show alert if form is invalid
   showAlert() {
