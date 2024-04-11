@@ -36,7 +36,10 @@ export class HistoryTechnicianComponent implements OnInit {
       this.http.get<any[]>('http://localhost:3000/technician/history', { headers: headers })
         .subscribe(
           (response) => {
-            this.historys = response; // Assign fetched history to the component's historys array
+            this.historys = response.map(history => ({
+              ...history,
+              formattedTimestamp: this.formatTimestamp(history.timestamp)
+            }));
           },
           (error) => {
             console.error('Error fetching data:', error); // Log error if fetching data fails
@@ -45,5 +48,17 @@ export class HistoryTechnicianComponent implements OnInit {
     } else {
       console.error('No token provided'); // Log error if no token is found in local storage
     }
+  }
+  formatTimestamp(timestamp: string): string {
+    const date = new Date(timestamp);
+    const options: Intl.DateTimeFormatOptions = {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true, // Use 12-hour format
+    };
+    return new Intl.DateTimeFormat('en-US', options).format(date);
   }
 }

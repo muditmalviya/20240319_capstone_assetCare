@@ -9,7 +9,8 @@
               <!-- Table header row -->
               <tr>
                   <!-- Column headers -->
-                  <th>Issue ID</th>  
+                  <th>Issue ID</th>
+                  <th>Created At</th>  
                   <th>Asset Name</th>
               </tr>
           </thead>
@@ -17,7 +18,8 @@
               <!-- Loop through fixed issues and display each one -->
               <tr *ngFor="let history of historys">
                   <!-- Displaying issue details in each column -->
-                  <td>{{ history._id }}</td>  
+                  <td>{{ history._id }}</td>
+                  <td>{{ history.formattedTimestamp }}</td>  
                   <td>{{ history.asset_name }}</td>
               </tr>
           </tbody>

@@ -2,9 +2,10 @@
     -moz-box-sizing:  border-box;
     -webkit-box-sizing:  border-box;
     box-sizing:  border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 body  {
-    font-family:  'Nunito',  sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color:  #384047;
     /* background-image: url('http://designvkp.com/wp-content/uploads/2015/07/pattern.png'); */
     background-position:  0px 0px;
@@ -65,7 +66,7 @@ select  {
 button  {
     padding:  19px 39px 18px 39px;
     color:  #FFF;
-    background-color: #015958;
+    background: linear-gradient(65.5deg, rgb(23, 205, 205) -15.1%, rgb(23, 25, 95) 71.5%);
     font-size:  18px;
     text-align:  center;
     font-style:  normal;
@@ -120,6 +121,7 @@ label.light  {
 .invalid {
   border-color: red;
 }
+button:hover { background: linear-gradient(to right, #009688, #4CAF50); }
 
 @media screen and (min-width: 480px)  {
     form  {

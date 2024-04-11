@@ -1,56 +1,55 @@
 <form (ngSubmit)="submitForm()" #issueForm="ngForm">
   <!-- Asset Data Section -->
   <fieldset>
-    <legend><span class="number">1</span>Enter The Asset Current Data</legend>
     <!-- Asset Name Input -->
     <div class="form-group">
       <label for="name">Asset name:</label>
-      <input type="text" id="name" name="asset_name" [(ngModel)]="assetName" required #assetNameInput="ngModel" [class.invalid]="assetNameInput.invalid && assetNameInput.touched">
-      <span class="error-message" *ngIf="assetNameInput.invalid && assetNameInput.touched">Input required</span>
+      <input type="text" id="name" name="asset_name" [(ngModel)]="assetName" required pattern="^[a-zA-Z ]{1,20}$" #assetNameInput="ngModel" [class.invalid]="assetNameInput.invalid && assetNameInput.touched">
+      <span class="error-message" *ngIf="assetNameInput.errors?.['required'] && assetNameInput.touched">Asset name is required</span>
+      <span class="error-message" *ngIf="assetNameInput.errors?.['pattern'] && assetNameInput.touched">Asset name should contain only alphabets and spaces and have a maximum length of 20 characters</span>
     </div>
     <!-- Energy Consumption Input -->
     <div class="form-group">
       <label for="energyconsumption">Energy Consumption (in "kWh"):</label>
-      <input type="text" id="energyconsumption" name="energyconsumption" [(ngModel)]="energyConsumption" required #energyConsumptionInput="ngModel" [class.invalid]="energyConsumptionInput.invalid && energyConsumptionInput.touched">
-      <span class="error-message" *ngIf="energyConsumptionInput.invalid && energyConsumptionInput.touched">Input required</span>
+      <input type="text" id="energyconsumption" name="energyconsumption" [(ngModel)]="energyConsumption" required pattern="^[0-9]+(\.[0-9]+)?$" #energyConsumptionInput="ngModel" [class.invalid]="energyConsumptionInput.invalid && energyConsumptionInput.touched">
+      <span class="error-message" *ngIf="energyConsumptionInput.errors?.['required'] && energyConsumptionInput.touched">Energy consumption is required</span>
+      <span class="error-message" *ngIf="energyConsumptionInput.errors?.['pattern'] && energyConsumptionInput.touched">Energy consumption should contain only numbers (floating numbers allowed)</span>
     </div>
     <!-- Hours of Operation Input -->
     <div class="form-group">
       <label for="operationtime">Hours of Operation (in "minutes"):</label>
-      <input type="text" id="operationtime" name="operationtime" [(ngModel)]="hoursOfOperation" required #hoursOfOperationInput="ngModel" [class.invalid]="hoursOfOperationInput.invalid && hoursOfOperationInput.touched">
-      <span class="error-message" *ngIf="hoursOfOperationInput.invalid && hoursOfOperationInput.touched">Input required</span>
+      <input type="text" id="operationtime" name="operationtime" [(ngModel)]="hoursOfOperation" required pattern="^[0-9]+$" #hoursOfOperationInput="ngModel" [class.invalid]="hoursOfOperationInput.invalid && hoursOfOperationInput.touched">
+      <span class="error-message" *ngIf="hoursOfOperationInput.errors?.['required'] && hoursOfOperationInput.touched">Hours of operation are required</span>
+      <span class="error-message" *ngIf="hoursOfOperationInput.errors?.['pattern'] && hoursOfOperationInput.touched">Hours of operation should contain only numbers</span>
     </div>
     <!-- Noise Level Input -->
     <div class="form-group">
       <label for="noiselevel">Noise Level (in "dB"):</label>
-      <input type="text" id="noiselevel" name="noiselevel" [(ngModel)]="noiseLevel" required #noiseLevelInput="ngModel" [class.invalid]="noiseLevelInput.invalid && noiseLevelInput.touched">
-      <span class="error-message" *ngIf="noiseLevelInput.invalid && noiseLevelInput.touched">Input required</span>
+      <input type="text" id="noiselevel" name="noiselevel" [(ngModel)]="noiseLevel" required pattern="^[0-9]+(\.[0-9]+)?$" #noiseLevelInput="ngModel" [class.invalid]="noiseLevelInput.invalid && noiseLevelInput.touched">
+      <span class="error-message" *ngIf="noiseLevelInput.errors?.['required'] && noiseLevelInput.touched">Noise level is required</span>
+      <span class="error-message" *ngIf="noiseLevelInput.errors?.['pattern'] && noiseLevelInput.touched">Noise level should contain only numbers (floating numbers allowed)</span>
     </div>
     <!-- Temperature Input -->
     <div class="form-group">
       <label for="temp">Temperature (in "K"):</label>
-      <input type="text" id="temp" name="temp" [(ngModel)]="temperature" required #temperatureInput="ngModel" [class.invalid]="temperatureInput.invalid && temperatureInput.touched">
-      <span class="error-message" *ngIf="temperatureInput.invalid && temperatureInput.touched">Input required</span>
+      <input type="text" id="temp" name="temp" [(ngModel)]="temperature" required pattern="^[0-9]+(\.[0-9]+)?$" #temperatureInput="ngModel" [class.invalid]="temperatureInput.invalid && temperatureInput.touched">
+      <span class="error-message" *ngIf="temperatureInput.errors?.['required'] && temperatureInput.touched">Temperature is required</span>
+      <span class="error-message" *ngIf="temperatureInput.errors?.['pattern'] && temperatureInput.touched">Temperature should contain only numbers (floating numbers allowed)</span>
     </div>
     <!-- Physical Condition Input -->
     <div class="form-group">
       <label for="condition">Physical Condition:</label>
-      <input type="text" id="condition" name="condition" [(ngModel)]="physicalCondition" required #physicalConditionInput="ngModel" [class.invalid]="physicalConditionInput.invalid && physicalConditionInput.touched">
-      <span class="error-message" *ngIf="physicalConditionInput.invalid && physicalConditionInput.touched">Input required</span>
+      <input type="text" id="condition" name="condition" [(ngModel)]="physicalCondition" required pattern="^[a-zA-Z ]*$" #physicalConditionInput="ngModel" [class.invalid]="physicalConditionInput.invalid && physicalConditionInput.touched">
+      <span class="error-message" *ngIf="physicalConditionInput.errors?.['required'] && physicalConditionInput.touched">Physical condition is required</span>
+      <span class="error-message" *ngIf="physicalConditionInput.errors?.['pattern'] && physicalConditionInput.touched">Physical condition should contain only alphabets and spaces</span>
     </div>
-  </fieldset>
-  
-  <!-- Explanation Section -->
-  <fieldset>
-    <legend><span class="number">2</span>Explanation</legend>
-    <!-- Detailed Information Input -->
     <div class="form-group">
       <label for="extraDetails">Detailed Information On Asset Condition:</label>
-      <textarea id="extraDetails" name="extraDetails" [(ngModel)]="description" required #descriptionInput="ngModel" [class.invalid]="descriptionInput.invalid && descriptionInput.touched"></textarea>
-      <span class="error-message" *ngIf="descriptionInput.invalid && descriptionInput.touched">Input required</span>
+      <textarea id="extraDetails" name="extraDetails" [(ngModel)]="description" required maxlength="300" #descriptionInput="ngModel" [class.invalid]="descriptionInput.invalid && descriptionInput.touched"></textarea>
+      <span class="error-message" *ngIf="descriptionInput.errors?.['required'] && descriptionInput.touched">Detailed information is required</span>
+      <span class="error-message" *ngIf="descriptionInput.errors?.['maxlength'] && descriptionInput.touched">Maximum 300 words allowed</span>
     </div>
   </fieldset>
-  
   <!-- Submit Button -->
   <button type="submit" [disabled]="!issueForm.valid">Submit Issue</button>
 </form>

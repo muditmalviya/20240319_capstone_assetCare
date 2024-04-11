@@ -49,6 +49,7 @@ export class NavbarComponent implements OnInit {
   logout() {
     localStorage.removeItem('token'); // Clear user token from local storage
     this.router.navigate(['/login']); // Redirect to login page
+    this.snackBar.open('Logged Out!!', 'Close', { duration: 3000 });
   }
   // Function to handle back button click
   goBack() {

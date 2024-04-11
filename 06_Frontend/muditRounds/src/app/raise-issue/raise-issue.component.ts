@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-raise-issue',
@@ -21,7 +23,7 @@ export class RaiseIssueComponent {
    vibration: number = 0;
    description: string = '';
     // Inject HttpClient into the constructor
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient, private snackBar: MatSnackBar, private router: Router) {}
 
     submitForm() {
       const formData = {
@@ -51,14 +53,16 @@ export class RaiseIssueComponent {
         .subscribe(
           (response) => {
             console.log('Form data submitted successfully:', response);
-            this.assetName = '';
-            this.energyConsumption = 0;
-            this.hoursOfOperation = 0;
-            this.noiseLevel = 0;
-            this.temperature = 0;
-            this.physicalCondition = '';
-            this.vibration = 0;
-            this.description = '';
+            this.router.navigate(['/profile']);
+            this.snackBar.open('Issue successfully submitted!!', 'Close', { duration: 3000 });
+            // this.assetName = '';
+            // this.energyConsumption = 0;
+            // this.hoursOfOperation = 0;
+            // this.noiseLevel = 0;
+            // this.temperature = 0;
+            // this.physicalCondition = '';
+            // this.vibration = 0;
+            // this.description = '';
             // Reset the form after successful submission
             // issueForm.resetForm(); // Uncomment if you have a reference to the form in your template
           },

@@ -35,41 +35,6 @@ export class LoginComponent {
       password: ['', Validators.required], // Password field with required validation
     });
   }
-
-  // Function to handle form submission
-  // onSubmit() {
-  //   console.log('submit button is press');
-  //   console.log('Form submitted successfully!');
-  //   const userData = {
-  //     username: this.username,
-  //     password: this.password,
-  //   };
-    
-  //   // Making POST request to login endpoint
-  //   this.http
-  //     .post<any>('http://localhost:3000/auth/signin', userData)
-  //     .subscribe({
-  //       // Handling successful response
-  //       next: async (response) => {
-  //         console.log('Login Successful', response);
-  //         const token = response.token;
-  //         const userRole = response.role; // assuming you are returning userRole from your backend
-  //         this.authService.setToken(token);
-  //         this.authService.setUser(response.user);
-  //         this.router.navigate(['/profile']);
-  //         this.snackBar.open('Login successful', 'Close', { duration: 3000 });
-  //       },
-  //       // Handling error response
-  //       error: (error) => {
-  //         console.error('Login failed:', error);
-  //         if (error.error && error.error.message === "passwords do not match") {
-  //           this.snackBar.open('Invalid username or password', 'Close', { duration: 3000 });
-  //         } else {
-  //           this.snackBar.open('Login failed', 'Close', { duration: 3000 });
-  //         }
-  //       }
-  //     });
-  // }
   onSubmit() {
     console.log('submit button is pressed');
     console.log('Form submitted successfully!');

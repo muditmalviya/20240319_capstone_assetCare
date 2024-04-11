@@ -27,23 +27,38 @@ export class HistoryOperatorComponent implements OnInit {
   }
 
   fetchData() {
-    const token = localStorage.getItem('token'); // Retrieve token from local storage
+    const token = localStorage.getItem('token');
 
     if (token) {
-      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`); // Setting authorization header
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-      // Fetch issue history from API
       this.http.get<any[]>('http://localhost:3000/api/issues', { headers: headers })
         .subscribe(
           (response) => {
-            this.historys = response; // Assign fetched history to the component's historys array
+            // Format timestamps before assigning to historys array
+            this.historys = response.map(history => ({
+              ...history,
+              formattedTimestamp: this.formatTimestamp(history.timestamp)
+            }));
           },
           (error) => {
-            console.error('Error fetching data:', error); // Log error if fetching data fails
+            console.error('Error fetching data:', error);
           }
         );
     } else {
-      console.error('No token provided'); // Log error if no token is found in local storage
+      console.error('No token provided');
     }
+  }
+  formatTimestamp(timestamp: string): string {
+    const date = new Date(timestamp);
+    const options: Intl.DateTimeFormatOptions = {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true, // Use 12-hour format
+    };
+    return new Intl.DateTimeFormat('en-US', options).format(date);
   }
 }

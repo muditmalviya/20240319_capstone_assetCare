@@ -59,7 +59,10 @@ export class OpenIssueAComponent implements OnInit {
       this.http.get<any[]>('http://localhost:3000/admin/open', { headers: headers })
         .subscribe(
           (response) => {
-            this.issues = response;
+            this.issues = response.map(issue=> ({
+              ...issue,
+              formattedTimestamp: this.formatTimestamp(issue.timestamp)
+            }));
           },
           (error) => {
             console.error('Error fetching data:', error);
@@ -97,5 +100,17 @@ export class OpenIssueAComponent implements OnInit {
           // Handle error scenario
         }
       );
+  }
+  formatTimestamp(timestamp: string): string {
+    const date = new Date(timestamp);
+    const options: Intl.DateTimeFormatOptions = {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true, // Use 12-hour format
+    };
+    return new Intl.DateTimeFormat('en-US', options).format(date);
   }
 }

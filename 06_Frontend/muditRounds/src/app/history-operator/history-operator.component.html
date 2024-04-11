@@ -20,7 +20,7 @@
               <tr *ngFor="let history of historys">
                   <!-- Displaying issue details in each column -->
                   <td>{{ history.description}}</td>
-                  <td>{{ history.timestamp }}</td>  
+                  <td>{{ history.formattedTimestamp }}</td>
                   <td>{{ history.asset_name }}</td>
                   <td>{{ history.status }}</td>
               </tr>
