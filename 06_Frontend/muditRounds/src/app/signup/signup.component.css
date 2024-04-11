@@ -11,6 +11,7 @@
     align-items: center;
     min-height: 100vh;
     background: #f6f8fa;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .wrapper {
@@ -18,7 +19,7 @@
     width: 100%;
     max-width: 350px;
     height: auto;
-    background: #008F8C;
+    background: linear-gradient(to right, #0acffe 0%, #495aff 100%);
     border-radius: 20px;
     padding: 40px;
     overflow: hidden;
@@ -46,7 +47,9 @@ h2 {
     margin: 20px 0;
     border-bottom: 2px solid #fff;
 }
-
+select option{
+    background-color: #0acffe;
+}
 .input-group label {
     position: absolute;
     top: 50%;
@@ -77,7 +80,7 @@ h2 {
 button {
     width: 100%;
     height: 40px;
-    background: #023535;
+    background: linear-gradient(65.5deg, rgb(23, 205, 205) -15.1%, rgb(23, 25, 95) 71.5%);
     font-size: 16px;
     color: #f8f2f2;
     font-weight: 500;
@@ -123,7 +126,7 @@ button {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    background: #008F8C;
+    /* background: linear-gradient(to right, #0acffe 0%, #495aff 100%); */
     color: #fff;
 }
 
@@ -131,7 +134,7 @@ button {
 .input-group select:valid~label {
     top: -5px;
 }
-
+button:hover { background: linear-gradient(to right, #009688, #4CAF50); }
 /* Media queries */
 @media screen and (max-width: 768px) {
     .wrapper {

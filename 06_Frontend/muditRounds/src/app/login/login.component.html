@@ -1,77 +1,54 @@
 <div class="body">
-  <div class="wrapper">
-      <!-- Form wrapper for sign-in -->
-      <div class="form-wrapper sign-in">
-          <!-- Login form -->
-          <form 
-              [formGroup]="loginForm" 
-              (ngSubmit)="onSubmit()"
-              autocomplete="off"
-              action="registration_endpoint"
-              method="POST"
-          >
-              <!-- Form title -->
-              <h2>Login</h2>
-              <!-- Username input field -->
-              <div class="input-group">
-                  <input 
-                      type="text"
-                      placeholder="Username"
-                      formControlName="username" 
-                      [(ngModel)]="username"
-                      required
-                  >
-                  <!-- Error message for username validation -->
-              </div>
-              <!-- Error message for required username field -->
-              <div 
-                  *ngIf="
-                      loginForm.get('username')?.invalid &&
-                      (loginForm.get('username')?.dirty || loginForm.get('username')?.touched)
-                  "
-                  class="error-message"
-              >
-                  <div *ngIf="loginForm.get('username')?.errors?.['required']">
-                      User name is required
-                  </div>
-              </div>
-              <!-- Password input field -->
-              <div class="input-group">
-                  <input 
-                      name="password"
-                      type="password"
-                      formControlName="password"
-                      required
-                      placeholder="Password"
-                      [(ngModel)]="password"
-                  >
-                  <!-- Error message for password validation -->
-              </div>
-              <!-- Error message for required password field -->
-              <div 
-                  *ngIf="
-                      loginForm.get('password')?.invalid &&
-                      (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)
-                  "
-                  class="error-message"
-              >
-                  <div *ngIf="loginForm.get('password')?.errors?.['required']">
-                      Password is required
-                  </div>
-              </div>
-              <!-- Submit button -->
-              <button 
-                  type="submit"
-                  (click)="showAlert()"
-                  [disabled]="loginForm.invalid"
-              >
-                  Login
-              </button>
-              <!-- Sign up link -->
-              <div class="signUp-link">
-                  <p>Don't have an account? <a href="#" class="signUpBtn-link">Sign Up</a></p>
-              </div>
-          </form>
-      </div>
-  </div>
+    <div class="wrapper">
+        <!-- Form wrapper for sign-in -->
+        <div class="form-wrapper sign-in">
+            <!-- Login form -->
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" autocomplete="off" action="registration_endpoint"
+                method="POST">
+                <!-- Form title -->
+                <h2>Login</h2>
+                <!-- Username input field -->
+                <div class="input-group">
+                    <input type="text" placeholder="Username" formControlName="username" [(ngModel)]="username"
+                        required>
+                    <!-- Error message for username validation -->
+                </div>
+                <!-- Error message for required username field -->
+                <div *ngIf="
+              loginForm.get('username')?.invalid &&
+              (loginForm.get('username')?.dirty || loginForm.get('username')?.touched)
+            " class="error-message">
+                    <div *ngIf="loginForm.get('username')?.errors?.['required']">
+                        User name is required
+                    </div>
+                    <div *ngIf="loginForm.get('username')?.errors?.['noSpecialCharactersOrNumbers']">
+                        Username should not contain numbers or special characters or Spaces or Upper Case Character
+                    </div>
+                </div>
+                <!-- Password input field -->
+                <div class="input-group">
+                    <input name="password" type="password" formControlName="password" required placeholder="Password"
+                        [(ngModel)]="password">
+                    <!-- Error message for password validation -->
+                </div>
+                <!-- Error message for required password field -->
+                <div *ngIf="
+              loginForm.get('password')?.invalid &&
+              (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)
+            " class="error-message">
+                    <div *ngIf="loginForm.get('password')?.errors?.['required']">
+                        Password is required
+                    </div>
+                </div>
+                <!-- Submit button -->
+                <button type="submit" (click)="showAlert()" [disabled]="loginForm.invalid">
+                    Login
+                </button>
+                <!-- Sign up link -->
+                <div class="signUp-link">
+                    <p>Don't have an account? <a href="#" class="signUpBtn-link">Sign Up</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>

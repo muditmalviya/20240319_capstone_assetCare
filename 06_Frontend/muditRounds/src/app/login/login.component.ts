@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms'; // Importing ReactiveFormsModule for form handling
+import { ReactiveFormsModule, FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'; // Importing ReactiveFormsModule for form handling
 import { CommonModule } from '@angular/common'; // Importing CommonModule for NgIf, NgFor, etc.
 import { HttpClient } from '@angular/common/http'; // Importing HttpClient for making HTTP requests
 import { HttpClientModule } from '@angular/common/http'; // Importing HttpClientModule for HTTP requests
@@ -29,7 +29,7 @@ export class LoginComponent {
   ) {
     // Initializing login form with form builder
     this.loginForm = this.formBuilder.group({
-      username: ['', [Validators.required]], // Username field with required validation
+      username: ['', [Validators.required, Validators.maxLength(15), this.noSpecialCharactersOrNumbers]], // Username field with required validation
       password: ['', Validators.required], // Password field with required validation
     });
   }
@@ -54,18 +54,6 @@ export class LoginComponent {
           const userRole = response.role; // assuming you are returning userRole from your backend
           this.authService.setToken(token);
           this.authService.setUser(response.user);
-          // Check if login was successful
-          // switch (userRole) {
-          //   case 'operator':
-          //     this.router.navigate(['/operatorPage']);
-          //     break;
-          //   case 'technician':
-          //     this.router.navigate(['/technicianPage']);
-          //     break;
-          //   case 'admin':
-          //     this.router.navigate(['/adminPage']);
-          //     break;
-          // }
           this.router.navigate(['/profile']);
         },
         // Handling error response
@@ -81,5 +69,19 @@ export class LoginComponent {
     if (this.loginForm.invalid) {
       alert('Please fill all the fields correctly.');
     }
+  }
+
+  // Custom validator to check for special characters or numbers
+  noSpecialCharactersOrNumbers(control: FormControl) {
+    console.log('Control value:', control.value);
+    // Validate for lowercase letters only and maximum length of 15 characters
+    if (/^[a-z]{1,15}$/.test(control.value))
+    {
+        return null; // Username is valid (lowercase letters, 1-15 characters)
+    } 
+    else
+     {
+       return { noSpecialCharactersOrNumbers: true }; // Error: invalid characters or length
+     }
   }
 }

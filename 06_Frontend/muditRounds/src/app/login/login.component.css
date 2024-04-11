@@ -10,6 +10,7 @@
     align-items: center;
     min-height: 100vh;
     background: #f6f8fa;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
   
   .wrapper {
@@ -17,7 +18,7 @@
     width: 100%;
     max-width: 350px;
     height: auto;
-    background: #008F8C;
+    background: linear-gradient(to right, #0acffe 0%, #495aff 100%);
     /* box-shadow: 0 0 50px #0ef; */
     border-radius: 20px;
     padding: 40px;
@@ -38,6 +39,7 @@
   
   /* Form styles */
   h2 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 30px;
     color: #fff;
     text-align: center;
@@ -97,7 +99,7 @@
   button {
     width: 100%;
     height: 40px;
-    background: #023535;
+    background: linear-gradient(65.5deg, rgb(23, 205, 205) -15.1%, rgb(23, 25, 95) 71.5%);
     /* box-shadow: 0 0 10px #0ef; */
     font-size: 16px;
     color: #f2e8e8;
@@ -134,6 +136,7 @@
     display: block;
     margin: 0 auto;
   }
+  button:hover { background: linear-gradient(to right, #009688, #4CAF50); }
   
   /* Media queries */
   @media screen and (max-width: 768px) {
