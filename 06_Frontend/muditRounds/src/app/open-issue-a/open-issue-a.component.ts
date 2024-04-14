@@ -18,6 +18,9 @@ export class OpenIssueAComponent implements OnInit {
   availtechs: any[] = []; // Array to store available technicians
   issues: any[] = []; // Array to store open issues
   showTableOne: boolean = false;
+  openedIssuesCount: number = 0;
+  assignedIssuesCount: number = 0;
+
   constructor(
     private http: HttpClient,
     private route: ActivatedRoute,
@@ -34,6 +37,7 @@ export class OpenIssueAComponent implements OnInit {
     // Fetch available technicians and open issues on component initialization
     this.fetchAvailTech();
     this.fetchData();
+    this.fetchIssueCounts();
   }
 
   // Function to fetch available technicians
@@ -78,12 +82,32 @@ export class OpenIssueAComponent implements OnInit {
       console.error('No token provided');
     }
   }
+  // Function to fetch issue counts
+  fetchIssueCounts() {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+      this.http.get<any>('http://localhost:3000/admin/countIssues', { headers: headers })
+        .subscribe(
+          (response) => {
+            this.openedIssuesCount = response.openedCount;
+            this.assignedIssuesCount = response.assignedCount;
+          },
+          (error) => {
+            console.error('Error fetching issue counts:', error);
+          }
+        );
+    } else {
+      console.error('No token provided');
+    }
+  }
 
   // Function to assign technician to an issue
-  assignTechnician(issueId: string, technicianId: string) {
+  assignTechnician(issueId: string, technicianUsername: string) {
     const requestBody = {
       issue_id: issueId,
-      user_id_tech: technicianId
+      username: technicianUsername // Change technicianId to technicianUsername
     };
 
     const token = localStorage.getItem('token');
@@ -94,15 +118,29 @@ export class OpenIssueAComponent implements OnInit {
 
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-    this.http.put<any>('http://localhost:3000/admin/assignIssue', requestBody, { headers })
+    // Make a GET request to fetch the technician's ID based on their username
+    this.http.get<any>(`http://localhost:3000/admin/users/?username=${technicianUsername}`, { headers })
       .subscribe(
         (response) => {
-          console.log('Issue assigned successfully:', response);
-          // You may want to update the UI or take further actions here
-          window.location.reload();
+          // Extract the technician's ID from the response
+          const technicianId = response.user._id;
+
+          // Make a PUT request to assign the technician
+          this.http.put<any>('http://localhost:3000/admin/assignIssue', { ...requestBody, user_id_tech: technicianId }, { headers })
+            .subscribe(
+              (response) => {
+                console.log('Issue assigned successfully:', response);
+                // You may want to update the UI or take further actions here
+                window.location.reload();
+              },
+              (error) => {
+                console.error('Error assigning technician:', error);
+                // Handle error scenario
+              }
+            );
         },
         (error) => {
-          console.error('Error assigning technician:', error);
+          console.error('Error fetching technician ID:', error);
           // Handle error scenario
         }
       );

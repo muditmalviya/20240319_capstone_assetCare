@@ -17,7 +17,7 @@
     </div>
     <!-- Hours of Operation Input -->
     <div class="form-group">
-      <label for="operationtime">Hours of Operation (in "minutes"):</label>
+      <label for="operationtime">Time of Operation (in "minutes"):</label>
       <input type="text" id="operationtime" name="operationtime" [(ngModel)]="hoursOfOperation" required pattern="^[0-9]+$" #hoursOfOperationInput="ngModel" [class.invalid]="hoursOfOperationInput.invalid && hoursOfOperationInput.touched">
       <span class="error-message" *ngIf="hoursOfOperationInput.errors?.['required'] && hoursOfOperationInput.touched">Hours of operation are required</span>
       <span class="error-message" *ngIf="hoursOfOperationInput.errors?.['pattern'] && hoursOfOperationInput.touched">Hours of operation should contain only numbers</span>

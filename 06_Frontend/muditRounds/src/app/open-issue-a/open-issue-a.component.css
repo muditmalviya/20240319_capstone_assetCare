@@ -1,46 +1,121 @@
+/* General styling */
 table {
-    border-collapse: collapse;
-    width: 95%;
-    margin-left: 2.5%;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  border-collapse: collapse;
+  width: 95%;
+  margin-left: 2.5%;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+th, td {
+  border: 3px solid #023535;
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  color: aliceblue;
+  background: linear-gradient(to right, #0acffe 0%, #495aff 100%);
+}
+
+h2, h3 {
+  margin-left: 2.5%;
+  color: linear-gradient(65.5deg, rgb(23, 205, 205) -15.1%, rgb(23, 25, 95) 71.5%);
+}
+
+.tableone {
+  margin-bottom: 45px;
+  padding-top: 2%;
+  width: 50%;
+  margin-left: 25%;
+}
+
+button {
+  background: linear-gradient(65.5deg, rgb(23, 205, 205) -15.1%, rgb(23, 25, 95) 71.5%);
+  color: #fff;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  margin-left: 5px;
+}
+td ,th {
+  text-align: center;
+}
+button:hover {
+  background: linear-gradient(to right, #009688, #4CAF50);
+}
+
+.hide {
+  display: none;
+}
+
+.cards-data {
+  margin-top: 25px;
+  display: flex;
+  gap: 40px;
+  justify-content: center; /* Center the cards horizontally */
+  align-items: center; /* Center the cards vertically */
+}
+
+hr {
+  border: none; /* Remove default border */
+  height: 2px; /* Set the height of the line */
+  background-color: #ccc; /* Set the color of the line */
+  margin: 20px 0; /* Set margin above and below the line */
+}
+
+.card {
+  background-color: lightblue;
+  text-align: center; /* Center the content inside the card */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100px; /* Set a fixed width for the cards */
+  padding: 20px;
+  box-shadow: 10px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 10px; /* Add some space between the number and title */
+}
+
+.value {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.dropdown-toggle button {
+  margin-left: 42%;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 768px) {
+  table {
+      width: 100%;
   }
   
-   th, td {
-    border: 3px solid #023535;
-    text-align: left;
-    padding: 8px;
-  }
-
-  th{
-    color: aliceblue;
-    background: linear-gradient(to right, #0acffe 0%, #495aff 100%);
+  .cards-data {
+      flex-direction: column;
+      align-items: center;
   }
   
-  /* th {
-    background-color: #aceceb;
-  } */
-   h2, h3{
-    margin-left: 2.5%;
-    color: linear-gradient(65.5deg, rgb(23, 205, 205) -15.1%, rgb(23, 25, 95) 71.5%);
+  .card {
+      width: 80%; /* Adjust card width for smaller screens */
+      margin-bottom: 20px; /* Add margin between cards */
   }
 
-  .tableone{
-    margin-bottom: 45px;
+  .dropdown-toggle button {
+      margin-left: 2%; /* Remove margin for button on smaller screens */
+      margin-top: 10px; /* Add margin on top of button */
   }
-
-  button{
-    background: linear-gradient(65.5deg, rgb(23, 205, 205) -15.1%, rgb(23, 25, 95) 71.5%);
-    color: #fff;
-    border: none;
-    padding: 4px 8px;
-    border-radius: 4px;
-    cursor: pointer;
-    outline: none;
-    margin-left: 5px;
-  }
-  button:hover{
-    background: linear-gradient(to right, #009688, #4CAF50);
-  }
-  .hide {
-    display: none;
-  }
+}

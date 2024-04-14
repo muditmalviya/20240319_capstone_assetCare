@@ -21,7 +21,7 @@ exports.getAssignedIssues = async (req, res) => {
         return res.status(401).json({ message: "Forbidden access. Only for technician" });
     }
     try {
-        const issues = await Issue.find({ user_id_tech: req.user._id, status: true });
+        const issues = await Issue.find({ user_id_tech: req.user._id, status: 'Assigned' });
         res.status(200).json(issues);
     } catch (err) {
         console.error(err);
@@ -46,7 +46,7 @@ exports.changeStatus = async (req, res) => {
         const technician = await User.findByIdAndUpdate(req.user._id, { isAvailable: true }, { new: true });
 
         // Update the issue's status field to false
-        const issue = await Issue.findByIdAndUpdate(req.body.issue_id, { status: false }, { new: true });
+        const issue = await Issue.findByIdAndUpdate(req.body.issue_id, { status: 'Closed' }, { new: true });
 
         res.status(200).json({ technician, issue });
     } catch (err) {
@@ -69,7 +69,7 @@ exports.getTechnicianHistory = async (req, res) => {
         }
 
         // Find all issues where user_id_tech is the technician's id and status is false
-        const issues = await Issue.find({ user_id_tech: req.user._id, status: false });
+        const issues = await Issue.find({ user_id_tech: req.user._id, status: 'Closed' });
         res.status(200).json(issues);
     } catch (err) {
         console.error(err);

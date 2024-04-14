@@ -17,33 +17,42 @@ const Asset = require('../models/asset.model');
  * @returns {object} - Returns a JSON object containing the saved issue or an error message
  */
 exports.create = async (req, res) => {
-  // Check if the asset exists
-  const asset = await Asset.findOne({ name: req.body.asset_name });
-  if (!asset) {
-    return res.status(400).json({ message: 'Asset does not exist' });
-  }
-
-  // Creating a new issue instance with the data from the request body
-  const issue = new Issue({
-    user_id: req.user.userId, // get user ID from JWT
-    asset_name: req.body.asset_name, // add asset_name field
-    status: req.body.status,
-    energy_consumption: req.body.energy_consumption,
-    hours_of_operation: req.body.hours_of_operation,
-    noise_level: req.body.noise_level,
-    temperature: req.body.temperature,
-    physical_condition: req.body.physical_condition,
-    vibration: req.body.vibration,
-    description: req.body.description
-  });
+  const { userId } = req.user; // Assuming userId is available in req.user from JWT
+  const {
+    asset_name,
+    status,
+    energy_consumption,
+    hours_of_operation,
+    noise_level,
+    temperature,
+    physical_condition,
+    vibration,
+    description
+  } = req.body;
 
   try {
+    // Creating a new issue object
+    const issue = new Issue({
+      user_id: userId, // Assigning user ID from JWT
+      asset_name,
+      status: status || 'Opened', // Default to 'opened' if status is not provided
+      energy_consumption,
+      hours_of_operation,
+      noise_level,
+      temperature,
+      physical_condition,
+      vibration,
+      description
+    });
+
     // Saving the issue to the database
     const savedIssue = await issue.save();
 
-    // Increment the num_issues_raised field in the Asset model
-    asset.num_issues_raised += 1;
-    await asset.save();
+    // If asset_name is related to an Asset model and you want to update it:
+    await Asset.findOneAndUpdate(
+      { name: asset_name }, // Filter to find the asset by name
+      { $inc: { num_issues_raised: 1 } } // Increment num_issues_raised by 1
+    );
 
     // Responding with the saved issue
     res.status(201).json(savedIssue);
@@ -55,6 +64,7 @@ exports.create = async (req, res) => {
   }
 };
 
+
 /**
  * Controller function to get all issues by a specific user
  * @param {object} req - The request object
@@ -62,18 +72,20 @@ exports.create = async (req, res) => {
  * @returns {object} - Returns a JSON object containing the issues or an error message
  */
 exports.getAllByUser = async (req, res) => {
-    try {
-      // Finding all issues where the user_id matches the user's ID from the JWT
-      const issues = await Issue.find({ user_id: req.user.userId });
-      // Responding with the issues
-      res.status(200).json(issues);
-    } catch (err) {
-      // Logging any errors
-      console.error(err);
-      // Responding with a 500 Internal Server Error status code
-      res.status(500).json({ message: 'Internal server error' });
-    }
+  try {
+    // Finding all issues where the user_id matches the user's ID from the JWT
+    const issues = await Issue.find({ user_id: req.user.userId })
+                               .sort({ timestamp: -1 }); // Sorting by timestamp in descending order
+    // Responding with the sorted issues
+    res.status(200).json(issues);
+  } catch (err) {
+    // Logging any errors
+    console.error(err);
+    // Responding with a 500 Internal Server Error status code
+    res.status(500).json({ message: 'Internal server error' });
+  }
 };
+
 
 exports.getIssuesByDateRange = async (req, res) => {
   try {

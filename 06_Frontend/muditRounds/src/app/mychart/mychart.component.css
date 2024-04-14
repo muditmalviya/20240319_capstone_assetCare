@@ -1,24 +1,48 @@
+/* Center aligning the selection */
 .selection {
+    margin: 4% auto 0;
     display: flex;
-    align-items: center; /* Centers items vertically */
+    justify-content: center;
+    align-items: center;
 }
 
-.date-selection {
-    margin-right: 20px; /* Adjust spacing between date selectors */
+/* Styling for input elements */
+input[type=date] {
+    height: 30px; /* Adjust height as needed */
+    margin-top: 0;
+    margin-right: 10px; /* Adjust spacing between inputs */
+    padding: 5px; /* Adjust padding as needed */
+    border: 1px solid #ccc; /* Add a border */
+    border-radius: 5px; /* Add border radius */
 }
-button  {
-    /* padding:  19px 39px 18px 39px; */
-    color:  #FFF;
+
+/* Styling for buttons */
+button {
+    color: #fff;
     background: linear-gradient(65.5deg, rgb(23, 205, 205) -15.1%, rgb(23, 25, 95) 71.5%);
-    font-size:  18px;
-    text-align:  center;
-    font-style:  normal;
-    border-radius:  5px;
-    width:  9%;
-    border:  1px solid #71bfe9;
-    border-width:  1px 1px 3px;
-    box-shadow:  0 -1px 0 rgba(255, 255, 255, 0.1) inset;
-    margin-bottom:  10px;
+    font-size: 18px;
+    text-align: center;
+    font-style: normal;
+    border: 1px solid #71bfe9;
+    border-width: 1px 1px 3px;
+    border-radius: 5px;
+    padding: 10px 20px; /* Adjust padding as needed */
     cursor: pointer;
 }
-button:hover { background: linear-gradient(to right, #009688, #4CAF50); }
+
+/* Button hover effect */
+button:hover {
+    background: linear-gradient(to right, #009688, #4CAF50);
+}
+
+/* Date selection layout */
+.date-selection {
+    display: flex;
+    align-items: center;
+}
+
+/* Date selection label */
+.date-selection h5 {
+    margin: 0;
+    padding-right: 5px;
+}

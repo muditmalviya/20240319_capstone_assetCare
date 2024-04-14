@@ -1,67 +1,84 @@
-<div>
-    <!-- Heading for open issues -->
-    <h2>Open Issues</h2>
+    <div>
+        <!-- Heading for open issues -->
+        <div class="cards-data">
+            <div class="card">
+                <div class="card-body">
+                    <div class="value">{{openedIssuesCount}}</div>
+                    <div class="title">Opened <br> Issues</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="value">{{assignedIssuesCount}}</div>
+                    <div class="title">Assigned Issues</div>
+                </div>
+            </div>
+        </div>
+        
+        <hr>
+        <!-- Dropdown toggle for available technicians -->
+        <div class="dropdown-toggle" (click)="toggleTableOne()">
+            <button>Check Available Technicians </button>
+        <!-- <h3>Check Available Technicians:-</h3> -->
+        </div>
     
-    <!-- Dropdown toggle for available technicians -->
-    <div class="dropdown-toggle" (click)="toggleTableOne()">
-      <h3>Check Available Technicians:-</h3>
-    </div>
-  
-    <!-- Table for available technicians -->
-    <div class="tableone" [ngClass]="{'hide': !showTableOne}">
-        <table>
-            <thead>
-                <!-- Table header row -->
-                <tr>
-                    <!-- Column headers -->
-                    <th>Technician ID</th>  
-                    <th>Technician Username</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Loop through available technicians and display each one -->
-                <tr *ngFor="let availtech of availtechs">
-                    <!-- Displaying technician details in each column -->
-                    <td>{{ availtech._id }}</td>  
-                    <td>{{ availtech.username }}</td>
-                </tr>
-            </tbody>
-        </table>
+        <!-- Table for available technicians -->
+        <div class="tableone" [ngClass]="{'hide': !showTableOne}">
+            <table>
+                <thead>
+                    <!-- Table header row -->
+                    <tr>
+                        <!-- Column headers -->
+                        <th>Technician ID</th>  
+                        <th>Technician Username</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Loop through available technicians and display each one -->
+                    <tr *ngFor="let availtech of availtechs">
+                        <!-- Displaying technician details in each column -->
+                        <td>{{ availtech._id }}</td>  
+                        <td>{{ availtech.username }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Table for pending issues -->
+        <div class="tabletwo">
+            <h3>Pending issues:-</h3>
+            <table>
+                <thead>
+                    <!-- Table header row -->
+                    <tr>
+                        <!-- Column headers -->
+                        <!-- <th>Issue ID</th> -->
+                        <th>Created At</th>  
+                        <!-- <th>Issue Raised by</th> -->
+                        <th>Status</th>
+                        <th>Issue Description</th>
+                        <th>Asset Name</th>
+                        <th>Assign Technician</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Loop through pending issues and display each one -->
+                    <tr *ngFor="let issue of issues">
+                        <!-- Displaying issue details in each column -->
+                        <!-- <td>{{ issue._id }}</td>   -->
+                        <td>{{issue.formattedTimestamp}}</td>
+                        <td>{{issue.status}}</td>
+                        <!-- <td>{{ issue.user_id.username }}</td> -->
+                        <td>{{issue.description}}</td>
+                        <td>{{ issue.asset_name }}</td>
+                        <!-- Assign technician input field and button -->
+                        <td>
+                            <input type="text" [(ngModel)]="issue.user_id_tech">
+                            <button (click)="assignTechnician(issue._id, issue.user_id_tech)">Assign</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
     
-    <!-- Table for pending issues -->
-    <div class="tabletwo">
-        <h3>Pending issues:-</h3>
-        <table>
-            <thead>
-                <!-- Table header row -->
-                <tr>
-                    <!-- Column headers -->
-                    <!-- <th>Issue ID</th> -->
-                    <th>Created At</th>  
-                    <!-- <th>Issue Raised by</th> -->
-                    <th>Issue Description</th>
-                    <th>Asset Name</th>
-                    <th>Assign Technician</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Loop through pending issues and display each one -->
-                <tr *ngFor="let issue of issues">
-                    <!-- Displaying issue details in each column -->
-                    <!-- <td>{{ issue._id }}</td>   -->
-                    <td>{{issue.formattedTimestamp}}</td>
-                    <!-- <td>{{ issue.user_id.username }}</td> -->
-                    <td>{{issue.description}}</td>
-                    <td>{{ issue.asset_name }}</td>
-                    <!-- Assign technician input field and button -->
-                    <td>
-                        <input type="text" [(ngModel)]="issue.user_id_tech">
-                        <button (click)="assignTechnician(issue._id, issue.user_id_tech)">Assign</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-  </div>
-  

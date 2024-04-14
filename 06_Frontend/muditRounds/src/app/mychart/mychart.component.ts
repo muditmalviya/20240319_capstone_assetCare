@@ -70,8 +70,8 @@ export class MychartComponent implements OnInit, OnDestroy {
           datasets: [{
             label: '# of Issues Raised',
             data: this.assetData.map(asset => asset.num_issues_raised),
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            borderColor: 'rgba(255, 99, 132, 1)',
+            backgroundColor: 'rgba(98, 207, 244, 0.6)',
+            borderColor: 'rgba(98, 207, 244, 2)',
             borderWidth: 1
           }]
         },

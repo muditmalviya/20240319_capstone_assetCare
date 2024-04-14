@@ -1,19 +1,23 @@
 <header class="navbar">
   <!-- Logo section -->
-  <a (click)="onLogoClick()"><label class="logo">mRounds</label></a>
-  
+  <a (click)="onLogoClick()"><label class="logo">assetCare</label></a>
+
   <!-- Default menu items -->
   <div *ngIf="menuType === 'default'" class="login-signup-container">
     <!-- Login button -->
     <div class="login-button">
-      <button (click)="onLoginClick()" style="color: white;">Login</button>
+      <button (click)="onLoginClick()" style="color: white;"> <svg xmlns="http://www.w3.org/2000/svg" width="1em"
+          height="1em" viewBox="0 0 24 24">
+          <path fill="currentColor"
+            d="M11 7L9.6 8.4l2.6 2.6H2v2h10.2l-2.6 2.6L11 17l5-5zm9 12h-8v2h8c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-8v2h8z" />
+        </svg> Login</button>
     </div>
     <!-- Sign up button -->
     <div class="signup-button">
-      <button (click)="onSignupClick()" style="color: white;">Sign up</button>
+      <button (click)="onSignupClick()" style="color: white;"> <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 50 50"><g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke="#344054" d="M43.75 39.583L25 29.167L6.25 39.583"/><path stroke="#306cfe" d="M43.75 20.833L25 10.417L6.25 20.833"/></g></svg>Sign up</button>
     </div>
   </div>
-  
+
   <!-- Verified menu items -->
   <div *ngIf="menuType === 'verified'" class="logged-in-menu">
     <div *ngIf="isAdmin()" class="analyze-button">
@@ -21,11 +25,14 @@
     </div>
     <!-- Logout button -->
     <div class="logout-button">
-      <button (click)="logout()" style="color: white;">Logout</button>
+      <button (click)="logout()" style="color: white;"> Logout</button>
     </div>
     <!-- Back Button -->
     <div class="back-button">
-      <button (click)="goBack()" style="color: white;">Back</button>
+      <button (click)="goBack()" style="color: white;"> <svg xmlns="http://www.w3.org/2000/svg" width="1em"
+          style="padding-top: 2px;" height="1em" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M20 11v2H8l5.5 5.5l-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5L8 11z" />
+        </svg>Back</button>
     </div>
   </div>
 </header>

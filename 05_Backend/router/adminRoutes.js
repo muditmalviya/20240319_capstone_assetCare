@@ -58,7 +58,7 @@ router.get('/close', jwtHelpers.verifyJwt, jwtHelpers.getUserMiddleware, adminCo
  * @param {function} adminController.getAllAvailableTechnicians - Controller function for retrieving all available technicians
  */
 router.get('/availtech', jwtHelpers.verifyJwt, jwtHelpers.getUserMiddleware, adminController.getAllAvailableTechnicians);
-
+router.get('/countIssues', jwtHelpers.verifyJwt, jwtHelpers.getUserMiddleware, adminController.getOpenAssignedIssueCounts);
 /**
  * Route for assigning issues
  * @name PUT/assignIssue
@@ -70,7 +70,7 @@ router.get('/availtech', jwtHelpers.verifyJwt, jwtHelpers.getUserMiddleware, adm
  * @param {function} adminController.assignIssue - Controller function for assigning issues
  */
 router.put('/assignIssue', jwtHelpers.verifyJwt, jwtHelpers.getUserMiddleware, adminController.assignIssue);
-
+router.get('/users', adminController.getUserByUsername);
 /**
  * Module exports the router
  * @module

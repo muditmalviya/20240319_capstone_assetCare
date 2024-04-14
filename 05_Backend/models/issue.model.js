@@ -20,8 +20,9 @@ const IssueSchema = new mongoose.Schema({
         required: true
     },
     status: {
-        type: Boolean,
-        required: true
+        type: String,
+        enum: ['Opened', 'Assigned', 'Closed'],
+        default: 'Opened'
     },
     energy_consumption: {
         type: Number,

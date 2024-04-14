@@ -29,7 +29,6 @@ export class RaiseIssueComponent {
     submitForm() {
         const formData = {
             asset_name: this.assetName,
-            status: true,
             energy_consumption: this.energyConsumption,
             hours_of_operation: this.hoursOfOperation,
             noise_level: this.noiseLevel,

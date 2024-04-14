@@ -71,7 +71,7 @@
             <option value="operator">Operator</option>
             <option value="technician">Technician</option>
           </select>
-          <label for="role">Role</label>
+          <!-- <label for="role">Role</label> -->
           <!-- Display validation message -->
           <div *ngIf="signupForm.get('role')?.invalid && (signupForm.get('role')?.dirty || signupForm.get('role')?.touched)">
             <div *ngIf="signupForm.get('role')?.errors?.['required']" class="text-danger">Role is required.</div>
