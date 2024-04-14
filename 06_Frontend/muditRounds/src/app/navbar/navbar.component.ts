@@ -44,7 +44,9 @@ export class NavbarComponent implements OnInit {
   onSignupClick() {
     this.router.navigate(['/signup']);
   }
-
+  analyze() {
+    this.router.navigate(['/analyze']);
+  }
   // Function to handle logout
   logout() {
     localStorage.removeItem('token'); // Clear user token from local storage
@@ -60,4 +62,12 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/profile']); // Replace with your intended fallback URL if needed
   }
   }
+
+  // Function to check if the user is an admin
+  isAdmin(): boolean {
+    const userRole = localStorage.getItem('user');
+    return userRole?.toLowerCase() === '"admin"';
+  }
+  
+  
 }

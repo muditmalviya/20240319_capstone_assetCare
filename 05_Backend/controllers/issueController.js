@@ -74,3 +74,23 @@ exports.getAllByUser = async (req, res) => {
       res.status(500).json({ message: 'Internal server error' });
     }
 };
+
+exports.getIssuesByDateRange = async (req, res) => {
+  try {
+    const fromDate = new Date(req.query.fromDate);
+    const toDate = new Date(req.query.toDate);
+    
+    // Adjust the toDate to include the entire day by setting it to the end of the day
+    toDate.setUTCHours(23, 59, 59, 999);
+
+    // Fetch issues from the database within the specified date range
+    const issues = await Issue.find({
+      timestamp: { $gte: fromDate, $lte: toDate }
+    });
+
+    res.json(issues);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+};

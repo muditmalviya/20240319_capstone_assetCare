@@ -53,7 +53,7 @@ export class LoginComponent {
           const token = response.token;
           const userRole = response.role; // assuming you are returning userRole from your backend
           this.authService.setToken(token);
-          this.authService.setUser(response.user);
+          this.authService.setUser(userRole);
           // Only navigate to the profile page if login was successful
           if (token) {
             this.router.navigate(['/profile']);

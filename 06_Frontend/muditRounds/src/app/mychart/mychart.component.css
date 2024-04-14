@@ -1,0 +1,24 @@
+.selection {
+    display: flex;
+    align-items: center; /* Centers items vertically */
+}
+
+.date-selection {
+    margin-right: 20px; /* Adjust spacing between date selectors */
+}
+button  {
+    /* padding:  19px 39px 18px 39px; */
+    color:  #FFF;
+    background: linear-gradient(65.5deg, rgb(23, 205, 205) -15.1%, rgb(23, 25, 95) 71.5%);
+    font-size:  18px;
+    text-align:  center;
+    font-style:  normal;
+    border-radius:  5px;
+    width:  9%;
+    border:  1px solid #71bfe9;
+    border-width:  1px 1px 3px;
+    box-shadow:  0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+    margin-bottom:  10px;
+    cursor: pointer;
+}
+button:hover { background: linear-gradient(to right, #009688, #4CAF50); }

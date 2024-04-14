@@ -17,12 +17,18 @@ import { forkJoin } from 'rxjs';
 export class OpenIssueAComponent implements OnInit {
   availtechs: any[] = []; // Array to store available technicians
   issues: any[] = []; // Array to store open issues
-
+  showTableOne: boolean = false;
   constructor(
     private http: HttpClient,
     private route: ActivatedRoute,
     private router : Router
   ) { }
+
+
+
+  toggleTableOne() {
+    this.showTableOne = !this.showTableOne;
+  }
 
   ngOnInit(): void {
     // Fetch available technicians and open issues on component initialization

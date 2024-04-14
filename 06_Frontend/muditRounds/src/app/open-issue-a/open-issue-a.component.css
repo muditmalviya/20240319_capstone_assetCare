@@ -41,4 +41,6 @@ table {
   button:hover{
     background: linear-gradient(to right, #009688, #4CAF50);
   }
-  
+  .hide {
+    display: none;
+  }

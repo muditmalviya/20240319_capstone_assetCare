@@ -35,6 +35,9 @@ const jwtHelpers = require('../dependencies/jwtHelpers');
  */
 router.post('/postAsset', jwtHelpers.verifyJwt, jwtHelpers.getUserMiddleware, assetController.createAsset);
 
+// Route to get assets
+router.get('/assets', assetController.getAssets);
+
 /**
  * Module exports the router
  * @module

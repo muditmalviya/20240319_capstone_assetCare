@@ -32,4 +32,20 @@ async function createAsset(req, res) {
   }
 }
 
-module.exports = { createAsset };
+
+// Controller function to get assets with their name and num_issues_raised
+async function getAssets(req, res){
+  try {
+    // Fetch assets from the database
+    const assets = await Asset.find({}, 'name num_issues_raised');
+
+    // Return the assets
+    res.json(assets);
+  } catch (err) {
+    // Handle errors
+    console.error(err);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+};
+
+module.exports = { createAsset , getAssets};

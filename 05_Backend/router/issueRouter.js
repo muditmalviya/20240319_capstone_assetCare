@@ -45,6 +45,10 @@ router.post('/issues', jwtHelpers.verifyJwt, issueController.create);
  */
 router.get('/issues', jwtHelpers.verifyJwt, issueController.getAllByUser);
 
+// Route to get issues within a date range
+router.get('/issuesD', issueController.getIssuesByDateRange);
+
+
 /**
  * Module exports the router
  * @module

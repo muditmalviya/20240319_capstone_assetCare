@@ -13,6 +13,7 @@ import { AssignedTechComponent } from './assigned-tech/assigned-tech.component';
 import { HistoryOperatorComponent } from './history-operator/history-operator.component';
 import { NotfoundpageComponent } from './notfoundpage/notfoundpage.component';
 import { ProfileInfoComponent } from './profile-info/profile-info.component';
+import { MychartComponent } from './mychart/mychart.component';
 
 
 export const routes: Routes = [
@@ -29,5 +30,6 @@ export const routes: Routes = [
     { path: 'assignedTech', component:AssignedTechComponent},
     { path: 'historyIssueTech', component:HistoryTechnicianComponent},
     {path: 'historyIssue', component: HistoryOperatorComponent},
+    {path: 'analyze', component: MychartComponent},
     { path: '**', component: NotfoundpageComponent }
 ];

@@ -16,6 +16,9 @@
   
   <!-- Verified menu items -->
   <div *ngIf="menuType === 'verified'" class="logged-in-menu">
+    <div *ngIf="isAdmin()" class="analyze-button">
+      <button (click)="analyze()" style="color: white;">Analyze</button>
+    </div>
     <!-- Logout button -->
     <div class="logout-button">
       <button (click)="logout()" style="color: white;">Logout</button>

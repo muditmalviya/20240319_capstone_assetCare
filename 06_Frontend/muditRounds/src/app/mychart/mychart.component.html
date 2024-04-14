@@ -1,0 +1,12 @@
+<div class="selection">
+    <div class="date-selection">
+        <h5>From:-</h5>
+        <input type="date" [(ngModel)]="fromDate">
+    </div>
+    <div class="date-selection">
+        <h5>To:-</h5>
+        <input type="date" [(ngModel)]="toDate">
+    </div>
+    <button (click)="onSubmit()">Get Graph</button>
+</div>
+<canvas id="myChart" width="150" height="150"></canvas>
