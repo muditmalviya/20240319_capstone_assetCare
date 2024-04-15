@@ -63,6 +63,7 @@ export class MychartComponent implements OnInit, OnDestroy {
   renderChart() {
     const ctx = document.getElementById('myChart') as HTMLCanvasElement;
     if (ctx) {
+      ctx.height = 300;
       this.chart = new Chart(ctx, {
         type: 'bar',
         data: {

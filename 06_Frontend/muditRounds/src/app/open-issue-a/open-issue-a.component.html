@@ -50,7 +50,14 @@
         
         <!-- Table for pending issues -->
         <div class="tabletwo">
-            <h3>Pending issues:-</h3>
+            <div class="headi">
+                            <h3>Pending issues:-</h3>
+            <select [(ngModel)]="selectedStatus" (ngModelChange)="filterIssues()">
+                <option value="All">All</option>
+                <option value="Assigned">Assigned</option>
+                <option value="Opened">Opened</option>
+            </select>
+            </div>  
             <table>
                 <thead>
                     <!-- Table header row -->
@@ -66,12 +73,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                <!-- Check if assignedIssues array is empty -->
-                <tr *ngIf="issues.length === 0">
-                    <td colspan="5" class="no-data">No issues opened or assigned</td>
-                </tr>
-                    <!-- Loop through pending issues and display each one -->
-                    <tr *ngFor="let issue of issues">
+                    <!-- Check if filteredIssues array is empty -->
+                    <tr *ngIf="filteredIssues.length === 0">
+                        <td colspan="5" class="no-data">No issues found for the selected status</td>
+                    </tr>
+                    <!-- Loop through filtered issues and display each one -->
+                    <tr *ngFor="let issue of filteredIssues">
                         <!-- Displaying issue details in each column -->
                         <!-- <td>{{ issue._id }}</td>   -->
                         <td>{{issue.formattedTimestamp}}</td>
@@ -88,5 +95,6 @@
                 </tbody>
             </table>
         </div>
+        
     </div>
     

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -20,6 +20,8 @@ export class OpenIssueAComponent implements OnInit {
   showTableOne: boolean = false;
   openedIssuesCount: number = 0;
   assignedIssuesCount: number = 0;
+  selectedStatus: string = 'All';
+  filteredIssues: any[] = [];
 
   constructor(
     private http: HttpClient,
@@ -35,9 +37,13 @@ export class OpenIssueAComponent implements OnInit {
 
   ngOnInit(): void {
     // Fetch available technicians and open issues on component initialization
+    console.log("Selected Status:", this.selectedStatus);
     this.fetchAvailTech();
     this.fetchData();
+    console.log(this.issues)
     this.fetchIssueCounts();
+    this.selectedStatus = 'All';
+    this.filterIssues();
   }
 
   // Function to fetch available technicians
@@ -73,6 +79,7 @@ export class OpenIssueAComponent implements OnInit {
               ...issue,
               formattedTimestamp: this.formatTimestamp(issue.timestamp)
             }));
+            this.filteredIssues=this.issues
           },
           (error) => {
             console.error('Error fetching data:', error);
@@ -157,4 +164,16 @@ export class OpenIssueAComponent implements OnInit {
     };
     return new Intl.DateTimeFormat('en-US', options).format(date);
   }
+  filterIssues() {
+    console.log("Filtering issues based on status:", this.selectedStatus);
+    if (this.selectedStatus === 'All') {
+        this.filteredIssues = this.issues;
+        console.log("Issues", this.issues);
+        return this.filterIssues
+    } else {
+      this.filteredIssues = this.issues.filter(issue => issue.status === this.selectedStatus);
+      return this.filterIssues
+    }
+    console.log("Filtered issues:", this.filteredIssues);
+}
 }

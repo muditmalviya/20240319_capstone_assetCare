@@ -4,9 +4,14 @@
     <!-- Asset Name Input -->
     <div class="form-group">
       <label for="name">Asset name:</label>
-      <input type="text" id="name" name="asset_name" [(ngModel)]="assetName" required pattern="^[a-zA-Z ]{1,20}$" #assetNameInput="ngModel" [class.invalid]="assetNameInput.invalid && assetNameInput.touched">
+      <select id="name" name="asset_name" [(ngModel)]="assetName" required #assetNameInput="ngModel" [class.invalid]="assetNameInput.invalid && assetNameInput.touched">
+        <option value="" disabled selected>Select Asset Name</option>
+        <option value="Inventors">Inventors</option>
+        <option value="Lathe Machine">Lathe Machine</option>
+        <option value="Milling Machine">Milling Machine</option>
+        <option value="Hydraulic Press">Hydraulic Press</option>
+      </select>
       <span class="error-message" *ngIf="assetNameInput.errors?.['required'] && assetNameInput.touched">Asset name is required</span>
-      <span class="error-message" *ngIf="assetNameInput.errors?.['pattern'] && assetNameInput.touched">Asset name should contain only alphabets and spaces and have a maximum length of 20 characters</span>
     </div>
     <!-- Energy Consumption Input -->
     <div class="form-group">

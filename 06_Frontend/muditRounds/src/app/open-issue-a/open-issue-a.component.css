@@ -28,6 +28,20 @@ h2, h3 {
   width: 50%;
   margin-left: 25%;
 }
+.headi{
+  display: flex;
+}
+select{
+  margin-left:78%;
+  text-align: center;
+  height: 30PX;
+  margin-top: 2%;
+  margin-bottom: 10px;
+}
+select:hover {
+  /* Add your hover effect styles here */
+  background-color: #f0f0f0; /* For example, changing the background color on hover */
+}
 
 button {
   background: linear-gradient(65.5deg, rgb(23, 205, 205) -15.1%, rgb(23, 25, 95) 71.5%);
