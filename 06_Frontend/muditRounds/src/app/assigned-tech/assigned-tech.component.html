@@ -16,6 +16,10 @@
           </tr>
       </thead>
       <tbody>
+                  <!-- Check if assignedIssues array is empty -->
+                  <tr *ngIf="assignedIssues.length === 0">
+                    <td colspan="5" class="no-data">Currently, no issues has been assigned to you.</td>
+                </tr>
           <!-- Loop through assigned issues and display each one -->
           <tr *ngFor="let assignedIssue of assignedIssues">
               <!-- Displaying issue details in each column -->

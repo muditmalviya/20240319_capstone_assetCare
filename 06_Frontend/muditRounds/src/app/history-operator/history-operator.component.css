@@ -22,4 +22,7 @@ table {
   .tableone{
     margin-bottom: 45px;
   }
+  .no-data {
+    color: red;
+  }
   

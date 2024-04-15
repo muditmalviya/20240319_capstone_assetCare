@@ -34,6 +34,10 @@
                     </tr>
                 </thead>
                 <tbody>
+                <!-- Check if assignedIssues array is empty -->
+                <tr *ngIf="availtechs.length === 0">
+                    <td colspan="5" class="no-data">Currently, no technicians are available.</td>
+                </tr>
                     <!-- Loop through available technicians and display each one -->
                     <tr *ngFor="let availtech of availtechs">
                         <!-- Displaying technician details in each column -->
@@ -62,6 +66,10 @@
                     </tr>
                 </thead>
                 <tbody>
+                <!-- Check if assignedIssues array is empty -->
+                <tr *ngIf="issues.length === 0">
+                    <td colspan="5" class="no-data">No issues opened or assigned</td>
+                </tr>
                     <!-- Loop through pending issues and display each one -->
                     <tr *ngFor="let issue of issues">
                         <!-- Displaying issue details in each column -->

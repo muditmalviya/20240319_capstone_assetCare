@@ -15,6 +15,10 @@
               </tr>
           </thead>
           <tbody>
+                <!-- Check if assignedIssues array is empty -->
+                <tr *ngIf="historys.length === 0">
+                        <td colspan="5" class="no-data">No issues has been fixed by you.</td>
+                </tr>
               <!-- Loop through fixed issues and display each one -->
               <tr *ngFor="let history of historys">
                   <!-- Displaying issue details in each column -->

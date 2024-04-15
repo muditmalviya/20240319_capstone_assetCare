@@ -38,3 +38,6 @@
   button:hover{
     background: linear-gradient(to right, #009688, #4CAF50);
   }
+  .no-data {
+    color: red;
+  }

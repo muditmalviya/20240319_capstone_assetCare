@@ -11,7 +11,7 @@ interface User {
     // user_id: Types.ObjectId; 
     // user_id_tech?: Types.ObjectId | null; 
     asset_name: string; // Name of the asset associated with the issue
-    status: boolean; // Status of the issue
+    status: 'Opened' | 'Assigned' | 'Closed'; // Status of the issue
     energy_consumption: number; // Energy consumption related to the issue
     hours_of_operation: number; // Hours of operation related to the issue
     noise_level: number; // Noise level related to the issue

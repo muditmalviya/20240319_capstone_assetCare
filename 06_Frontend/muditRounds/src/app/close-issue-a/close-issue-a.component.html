@@ -15,6 +15,10 @@
               </tr>
           </thead>
           <tbody>
+                <!-- Check if assignedIssues array is empty -->
+                <tr *ngIf="closes.length === 0">
+                        <td colspan="5" class="no-data">Till now no issues has been closed</td>
+                </tr>
               <!-- Loop through closed issues and display each one -->
               <tr *ngFor="let close of closes">
                   <!-- Displaying issue details in each column -->
