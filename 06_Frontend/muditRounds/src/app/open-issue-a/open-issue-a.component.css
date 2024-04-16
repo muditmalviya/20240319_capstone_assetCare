@@ -115,6 +115,21 @@ hr {
 .no-data {
   color: red;
 }
+.assign-column {
+  width: 250px; 
+  /* Adjust the width as needed */
+}
+
+.assign-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right:80%;
+}
+.select-box {
+  margin-right: 1px;
+}
+
 
 /* Media Queries */
 @media only screen and (max-width: 768px) {

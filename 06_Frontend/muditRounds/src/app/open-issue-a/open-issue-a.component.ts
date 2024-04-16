@@ -22,6 +22,8 @@ export class OpenIssueAComponent implements OnInit {
   assignedIssuesCount: number = 0;
   selectedStatus: string = 'All';
   filteredIssues: any[] = [];
+  selectedIssue: string = ''; // Added property for selected issue
+  selectedTechnician: { [key: string]: string } = {};
 
   constructor(
     private http: HttpClient,
@@ -112,6 +114,7 @@ export class OpenIssueAComponent implements OnInit {
 
   // Function to assign technician to an issue
   assignTechnician(issueId: string, technicianUsername: string) {
+    const technicianUsernamee = this.selectedTechnician[issueId];
     const requestBody = {
       issue_id: issueId,
       username: technicianUsername // Change technicianId to technicianUsername

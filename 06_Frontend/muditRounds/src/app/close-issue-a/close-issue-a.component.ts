@@ -38,6 +38,7 @@ export class CloseIssueAComponent {
         .subscribe(
           (response) => {
             this.closes = response; // Assign fetched issues to the component's closes array
+            console.log(this.closes)
           },
           (error) => {
             console.error('Error fetching data:', error); // Log error if fetching data fails

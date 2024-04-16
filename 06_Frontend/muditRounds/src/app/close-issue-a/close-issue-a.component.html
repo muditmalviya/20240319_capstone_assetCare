@@ -23,8 +23,8 @@
               <tr *ngFor="let close of closes">
                   <!-- Displaying issue details in each column -->
                   <td>{{ close._id }}</td>  
-                  <td>{{ close.user_id.username }}</td>
-                  <td>{{ close.user_id_tech.username }}</td>
+                  <td>{{ close.user_id?.username || 'N/A' }}</td>
+                  <td>{{ close.user_id_tech?.username || 'N/A' }}</td>
               </tr>
           </tbody>
       </table>

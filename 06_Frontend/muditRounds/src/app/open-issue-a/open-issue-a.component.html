@@ -49,52 +49,57 @@
         </div>
         
         <!-- Table for pending issues -->
-        <div class="tabletwo">
-            <div class="headi">
-                            <h3>Pending issues:-</h3>
-            <select [(ngModel)]="selectedStatus" (ngModelChange)="filterIssues()">
-                <option value="All">All</option>
-                <option value="Assigned">Assigned</option>
-                <option value="Opened">Opened</option>
-            </select>
-            </div>  
-            <table>
-                <thead>
-                    <!-- Table header row -->
-                    <tr>
-                        <!-- Column headers -->
-                        <!-- <th>Issue ID</th> -->
-                        <th>Created At</th>  
-                        <!-- <th>Issue Raised by</th> -->
-                        <th>Status</th>
-                        <th>Issue Description</th>
-                        <th>Asset Name</th>
-                        <th>Assign Technician</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Check if filteredIssues array is empty -->
-                    <tr *ngIf="filteredIssues.length === 0">
-                        <td colspan="5" class="no-data">No issues found for the selected status</td>
-                    </tr>
-                    <!-- Loop through filtered issues and display each one -->
-                    <tr *ngFor="let issue of filteredIssues">
-                        <!-- Displaying issue details in each column -->
-                        <!-- <td>{{ issue._id }}</td>   -->
-                        <td>{{issue.formattedTimestamp}}</td>
-                        <td>{{issue.status}}</td>
-                        <!-- <td>{{ issue.user_id.username }}</td> -->
-                        <td>{{issue.description}}</td>
-                        <td>{{ issue.asset_name }}</td>
-                        <!-- Assign technician input field and button -->
-                        <td>
-                            <input type="text" [(ngModel)]="issue.user_id_tech">
-                            <button (click)="assignTechnician(issue._id, issue.user_id_tech)">Assign</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+<div class="tabletwo">
+    <div class="headi">
+        <h3>Pending issues:-</h3>
+        <select [(ngModel)]="selectedStatus" (ngModelChange)="filterIssues()">
+            <option value="All">All</option>
+            <option value="Assigned">Assigned</option>
+            <option value="Opened">Opened</option>
+        </select>
+    </div>  
+    <table>
+        <thead>
+            <!-- Table header row -->
+            <tr>
+                <!-- Column headers -->
+                <!-- <th>Issue ID</th> -->
+                <th>Created At</th>  
+                <!-- <th>Issue Raised by</th> -->
+                <th>Status</th>
+                <th>Issue Description</th>
+                <th>Asset Name</th>
+                <th>Assign Technician</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Check if filteredIssues array is empty -->
+            <tr *ngIf="filteredIssues.length === 0">
+                <td colspan="5" class="no-data">No issues found for the selected status</td>
+            </tr>
+            <!-- Loop through filtered issues and display each one -->
+            <tr *ngFor="let issue of filteredIssues">
+                <!-- Displaying issue details in each column -->
+                <!-- <td>{{ issue._id }}</td>   -->
+                <td>{{issue.formattedTimestamp}}</td>
+                <td>{{issue.status}}</td>
+                <!-- <td>{{ issue.user_id.username }}</td> -->
+                <td>{{issue.description}}</td>
+                <td>{{ issue.asset_name }}</td>
+                <!-- Assign technician input field and button -->
+                <td class="assign-column">
+                    <div class="assign-container">
+                        <select class="select-box" [(ngModel)]="selectedTechnician[issue._id]">
+                            <option *ngFor="let technician of availtechs" [value]="technician.username">{{ technician.username }}</option>
+                        </select>
+                        <button (click)="assignTechnician(issue._id, selectedTechnician[issue._id])">Assign</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+</div>
         
     </div>
     
