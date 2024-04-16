@@ -13,10 +13,10 @@ label.logo{
   background: linear-gradient(107deg, rgb(2, 108, 223) 27.4%, rgb(0, 255, 255) 92.7%);;
   padding: 10px 20px;
 }
-.login-button, .signup-button, .back-button, .analyze-button, .logout-button{
+.login-button, .signup-button, .back-button, .analyze-button, .logout-button, .leaderboard-button{
   margin-left: 5px;
 }
-.login-button button, .signup-button button, .logout-button button, .back-button button, .analyze-button button{
+.login-button button, .signup-button button, .logout-button button, .back-button button, .analyze-button button, .leaderboard-button button{
   background: linear-gradient(65.5deg, rgb(23, 205, 205) -15.1%, rgb(23, 25, 95) 71.5%);
   color: #fff;
   border: none;
@@ -25,7 +25,7 @@ label.logo{
   cursor: pointer;
   outline: none;
 }
-.login-button button:hover, .signup-button button:hover, .logout-button button:hover, .back-button button:hover, .analyze-button button:hover {
+.login-button button:hover, .signup-button button:hover, .logout-button button:hover, .back-button button:hover, .analyze-button button:hover, .leaderboard-button button:hover {
   background: linear-gradient(to right, #009688, #4CAF50);
 }
 .login-signup-container, .logged-in-menu {
@@ -55,10 +55,10 @@ label.logo{
     margin-top: 5px; /* Reduce margin */
     flex-direction: column; /* Stack buttons vertically */
   }
-  .login-button, .signup-button, .logout-button {
+  .login-button, .signup-button, .logout-button, .back-button, .analyze-button, .leaderboard-button{
     margin-bottom: 5px; /* Add space between stacked buttons */
   }
-  .login-button button, .signup-button button, .logout-button button {
+  .login-button button, .signup-button button, .logout-button button, .back-button button, .analyze-button button, .leaderboard-button button{
     padding: 5px 10px; /* Reduce button padding */
   }
 }

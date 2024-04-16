@@ -37,6 +37,10 @@ const userSchema = new mongoose.Schema({
     isAvailable: {
         type: Boolean,
         default: true
+    },
+    rewards: {
+        type: Number,
+        default: 0
     }
   });
 

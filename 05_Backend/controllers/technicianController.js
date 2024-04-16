@@ -44,9 +44,28 @@ exports.changeStatus = async (req, res) => {
 
         // Update the technician's isAvailable field to true
         const technician = await User.findByIdAndUpdate(req.user._id, { isAvailable: true }, { new: true });
-
+        const timestamp_fixed = new Date();
         // Update the issue's status field to false
-        const issue = await Issue.findByIdAndUpdate(req.body.issue_id, { status: 'Closed' }, { new: true });
+        const issue = await Issue.findByIdAndUpdate(req.body.issue_id, { status: 'Closed', timestamp_fixed }, { new: true });
+
+        // Calculate the time difference between timestamp_fixed and timestamp_assigned in minutes
+        const timestamp_assigned = issue.timestamp_assigned;
+        const timeDifference = Math.abs(timestamp_fixed - timestamp_assigned) / (1000 * 60); // Difference in minutes
+
+        // Initialize reward increment based on time taken
+        let rewardIncrement = 0;
+
+        // Determine reward increment based on time taken
+        if (timeDifference < 30) {
+            rewardIncrement = 4;
+        } else if (timeDifference >= 30 && timeDifference < 120) { // Between 30 minutes and 2 hours
+            rewardIncrement = 2;
+        } else if (timeDifference >= 240) { // Greater than 4 hours
+            rewardIncrement = 1;
+        }
+
+        // Increment the technician's rewards
+        await User.findByIdAndUpdate(req.user._id, { $inc: { rewards: rewardIncrement } });
 
         res.status(200).json({ technician, issue });
     } catch (err) {

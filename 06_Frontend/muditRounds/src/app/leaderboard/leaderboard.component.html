@@ -1,0 +1,46 @@
+<!-- <h1>Leaderboard</h1>
+<div>
+    <select (change)="onSelectChange($event)">
+        <option value="null">Select Role</option>
+        <option value="Technician">Technician</option>
+        <option value="Operators">Operators</option>
+      </select>
+</div>
+
+  <canvas #myChart class="chart" width="10" height="150"></canvas> -->
+
+  <h1>Leaderboard</h1>
+  <div>
+      <select (change)="onSelectChange($event)">
+          <option [value]="null" [selected]="selectedOption === null">Select Role</option>
+          <option [value]="'Technician'" [selected]="selectedOption === 'Technician'">Technician</option>
+          <option [value]="'Operators'" [selected]="selectedOption === 'Operators'">Operators</option>
+      </select>
+  </div>
+  
+  <div *ngIf="selectedOption === null">
+    <div class="container">
+        <h2>Reward System Description</h2>
+        <div class="role-description">
+          <h3>Technician:-</h3>
+          <ol>
+            <li>Technicians earn rewards based on the time taken to resolve issues assigned to them.</li>
+            <li>If the time taken to resolve an issue is less than 30 minutes, the technician earns 4 rewards.</li>
+            <li>If the time taken is between 30 minutes and 2 hours, the technician earns 2 rewards.</li>
+            <li>If the time taken exceeds 4 hours, the technician earns 1 reward.</li>
+            <li>These rewards are accumulated over time as the technician resolves issues, and they can be used as incentives or recognition for their work.</li>
+          </ol>
+        </div>
+        <div class="role-description">
+          <h3>Operator:-</h3>
+          <ol>
+            <li>Operators may also earn rewards, typically based on their performance in managing assets or handling operational tasks efficiently.</li>
+            <li>The reward system for operators could be tailored to incentivize actions that contribute to the smooth functioning of operations, such as minimizing downtime, optimizing resource usage, or improving overall efficiency.</li>
+            <li>For example, operators may earn rewards for achieving specific performance targets, completing tasks within deadlines, or implementing innovative solutions that enhance productivity.</li>
+          </ol>
+        </div>
+      </div>
+  </div>
+  
+  <canvas #myChart class="chart" width="10" height="150"></canvas>
+  

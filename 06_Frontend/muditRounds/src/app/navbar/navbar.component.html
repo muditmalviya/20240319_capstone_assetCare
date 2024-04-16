@@ -23,6 +23,9 @@
     <div *ngIf="isAdmin()" class="analyze-button">
       <button (click)="analyze()" style="color: white;">Analyze</button>
     </div>
+    <div *ngIf="isAdmin()" class="leaderboard-button">
+      <button (click)="leaderboard()" style="color: white;">Leaderboard</button>
+    </div>
     <!-- Logout button -->
     <div class="logout-button">
       <button (click)="logout()" style="color: white;"> Logout</button>

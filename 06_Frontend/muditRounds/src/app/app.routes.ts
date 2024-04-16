@@ -14,6 +14,7 @@ import { HistoryOperatorComponent } from './history-operator/history-operator.co
 import { NotfoundpageComponent } from './notfoundpage/notfoundpage.component';
 import { ProfileInfoComponent } from './profile-info/profile-info.component';
 import { MychartComponent } from './mychart/mychart.component';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 
 
 export const routes: Routes = [
@@ -31,5 +32,6 @@ export const routes: Routes = [
     { path: 'historyIssueTech', component:HistoryTechnicianComponent},
     {path: 'historyIssue', component: HistoryOperatorComponent},
     {path: 'analyze', component: MychartComponent},
+    {path: 'leaderboard', component: LeaderboardComponent},
     { path: '**', component: NotfoundpageComponent }
 ];

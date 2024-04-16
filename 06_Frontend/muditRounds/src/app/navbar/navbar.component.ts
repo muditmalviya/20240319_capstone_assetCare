@@ -47,6 +47,9 @@ export class NavbarComponent implements OnInit {
   analyze() {
     this.router.navigate(['/analyze']);
   }
+  leaderboard(){
+    this.router.navigate(['/leaderboard']);
+  }
   // Function to handle logout
   logout() {
     localStorage.removeItem('token'); // Clear user token from local storage

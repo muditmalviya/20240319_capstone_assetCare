@@ -56,7 +56,17 @@ const IssueSchema = new mongoose.Schema({
   timestamp: {
     type: Date,
     default: Date.now
-  }
+  },
+  // Timestamp of when the issue was assigned
+  timestamp_assigned: {
+    type: Date,
+    default: null
+},
+// Timestamp of when the issue was fixed
+timestamp_fixed: {
+    type: Date,
+    default: null
+}
 });
 
 

@@ -16,13 +16,14 @@ import { HistoryTechnicianComponent } from './history-technician/history-technic
 import { AssignedTechComponent } from './assigned-tech/assigned-tech.component';
 import { ProfileInfoComponent } from './profile-info/profile-info.component';
 import { MychartComponent } from './mychart/mychart.component';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, NavbarComponent, LoginComponent, SignupComponent, ProfileComponent,
             RaiseIssueComponent, HttpClientModule, FormsModule, HomepageComponent, CommonModule, HistoryOperatorComponent, HistoryTechnicianComponent,
-        AssignedTechComponent, ProfileInfoComponent, MychartComponent],
+        AssignedTechComponent, ProfileInfoComponent, MychartComponent, LeaderboardComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

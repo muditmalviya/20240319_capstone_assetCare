@@ -3,6 +3,7 @@
  * @const
  */
 const Issue = require('../models/issue.model');
+const User = require('../models/user.model');
 
 /**
  * Model for storing assets
@@ -53,6 +54,9 @@ exports.create = async (req, res) => {
       { name: asset_name }, // Filter to find the asset by name
       { $inc: { num_issues_raised: 1 } } // Increment num_issues_raised by 1
     );
+
+    // Incrementing the user's rewards by 2
+    await User.findByIdAndUpdate(userId, { $inc: { rewards: 2 } });
 
     // Responding with the saved issue
     res.status(201).json(savedIssue);

@@ -149,12 +149,14 @@ exports.assignIssue = async (req, res) => {
       return res.status(404).json({ message: "User not found" });
     }
 
+    const timestamp_assigned = new Date();
     // Update the issue with the technician's user_id
     const issue = await Issue.findByIdAndUpdate(
       req.body.issue_id,
-      { user_id_tech: user._id, status: 'Assigned' },
+      { user_id_tech: user._id, status: 'Assigned', timestamp_assigned},
       { new: true }
     );
+
 
     // Set the technician's isAvailable field to false
     const technician = await User.findByIdAndUpdate(
@@ -197,3 +199,26 @@ exports.getOpenAssignedIssueCounts = async (req, res) => {
   }
 };
 
+exports.getAllTechnicians = async (req, res) => {
+  try {
+    // Find all users with the role 'technician'
+    const technicians = await User.find({ role: 'technician' }, {username: 1, rewards: 1 });
+
+    res.status(200).json(technicians);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+};
+
+exports.getAllOperators = async (req, res) => {
+  try {
+    // Find all users with the role 'technician'
+    const operators = await User.find({ role: 'operator' }, {username: 1, rewards: 1 });
+
+    res.status(200).json(operators);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+};

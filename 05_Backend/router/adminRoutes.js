@@ -71,6 +71,11 @@ router.get('/countIssues', jwtHelpers.verifyJwt, jwtHelpers.getUserMiddleware, a
  */
 router.put('/assignIssue', jwtHelpers.verifyJwt, jwtHelpers.getUserMiddleware, adminController.assignIssue);
 router.get('/users', adminController.getUserByUsername);
+
+//leaderboard
+router.get('/techniciansB', adminController.getAllTechnicians);
+router.get('/operatorsB', adminController.getAllOperators);
+
 /**
  * Module exports the router
  * @module
