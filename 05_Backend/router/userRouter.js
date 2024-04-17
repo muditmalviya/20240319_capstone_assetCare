@@ -1,26 +1,6 @@
-/**
- * Express module for handling HTTP requests
- * @const
- */
 const express = require('express');
-
-/**
- * Express router for defining API routes
- * @type {object}
- * @namespace router
- */
 const router = express.Router();
-
-/**
- * Controller module for user-related functionalities
- * @const
- */
 const userController = require('../controllers/userController.js');
-
-/**
- * JWT helpers module for authentication and user retrieval
- * @const
- */
 const jwtHelpers = require('../dependencies/jwtHelpers.js');
 
 /**
@@ -35,8 +15,5 @@ const jwtHelpers = require('../dependencies/jwtHelpers.js');
  */
 router.get('/profile', jwtHelpers.verifyJwt, jwtHelpers.getUserMiddleware, userController.getProfile);
 
-/**
- * Module exports the router
- * @module
- */
+
 module.exports = router;

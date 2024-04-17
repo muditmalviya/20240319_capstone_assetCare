@@ -8,7 +8,6 @@
           <tr>
               <!-- Column headers -->
               <th>Issue ID</th>  
-              <!-- <th>Asset ID</th> -->
               <th>Issue Status</th>
               <th>Asset Name</th>
               <th>Issue Description</th>
@@ -24,7 +23,6 @@
           <tr *ngFor="let assignedIssue of assignedIssues">
               <!-- Displaying issue details in each column -->
               <td>{{ assignedIssue._id }}</td>  
-              <!-- <td>{{ assignedIssue.user_id }}</td> -->
               <td>{{ assignedIssue.status }}</td>
               <td>{{ assignedIssue.asset_name }}</td>
               <td>{{ assignedIssue.description }}</td>

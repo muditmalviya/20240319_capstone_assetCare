@@ -18,7 +18,6 @@ export class LeaderboardComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    // No need to fetch or render chart initially
     this.selectedOption = null;
   }
 

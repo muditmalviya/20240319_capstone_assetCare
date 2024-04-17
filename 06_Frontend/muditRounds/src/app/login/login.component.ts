@@ -1,26 +1,26 @@
 import { Component } from '@angular/core';
-import { ReactiveFormsModule, FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'; // Importing ReactiveFormsModule for form handling
-import { CommonModule } from '@angular/common'; // Importing CommonModule for NgIf, NgFor, etc.
-import { HttpClient } from '@angular/common/http'; // Importing HttpClient for making HTTP requests
-import { HttpClientModule } from '@angular/common/http'; // Importing HttpClientModule for HTTP requests
-import { AuthService } from '../auth.service'; // Importing AuthService for authentication
-import { Router } from '@angular/router'; // Importing Router for navigation
-import { NgModule } from '@angular/core'; // Importing NgModule for NgModule decorator
+import { ReactiveFormsModule, FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router'; 
+import { NgModule } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar'; 
 
 
 @Component({
   selector: 'app-login',
-  standalone: true, // Unsure of what standalone is meant for, typically not used here
-  imports: [ReactiveFormsModule, HttpClientModule, CommonModule], // Importing required modules
-  templateUrl: './login.component.html', // Template URL for HTML file
-  styleUrl: './login.component.css', // Style URL for CSS file
-  providers: [AuthService] // Providing AuthService
+  standalone: true,
+  imports: [ReactiveFormsModule, HttpClientModule, CommonModule],
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.css',
+  providers: [AuthService]
 })
 export class LoginComponent {
-  loginForm: FormGroup; // Form group for login form
-  username: string = ''; // Variable to store username input
-  password: string = ''; // Variable to store password input
+  loginForm: FormGroup;
+  username: string = '';
+  password: string = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -32,7 +32,7 @@ export class LoginComponent {
     // Initializing login form with form builder
     this.loginForm = this.formBuilder.group({
       username: ['', [Validators.required, Validators.maxLength(15), this.noSpecialCharactersOrNumbers]], // Username field with required validation
-      password: ['', Validators.required], // Password field with required validation
+      password: ['', Validators.required],
     });
   }
   onSubmit() {
@@ -51,10 +51,10 @@ export class LoginComponent {
         next: async (response) => {
           console.log('Login Successful', response);
           const token = response.token;
-          const userRole = response.role; // assuming you are returning userRole from your backend
+          const userRole = response.role; 
           this.authService.setToken(token);
           this.authService.setUser(userRole);
-          // Only navigate to the profile page if login was successful
+          // Only navigate to the profile page if login is successful
           if (token) {
             this.router.navigate(['/profile']);
             this.snackBar.open('Login successful', 'Close', { duration: 3000 });

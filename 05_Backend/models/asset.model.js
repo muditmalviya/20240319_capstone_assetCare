@@ -14,8 +14,6 @@ const assetSchema = new mongoose.Schema({
     type: String
   }
 });
-
-// Create model
 const Asset = mongoose.model('Asset', assetSchema);
 
 module.exports = Asset;

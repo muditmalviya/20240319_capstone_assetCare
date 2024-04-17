@@ -1,26 +1,6 @@
-/**
- * Express module for handling HTTP requests
- * @const
- */
 const express = require('express');
-
-/**
- * Controller module for technician-related functionalities
- * @const
- */
 const techController = require('../controllers/technicianController');
-
-/**
- * JWT helpers module for authentication and user retrieval
- * @const
- */
 const jwtHelpers = require('../dependencies/jwtHelpers');
-
-/**
- * Express router for defining API routes
- * @type {object}
- * @namespace router
- */
 const router = express.Router();
 
 /**
@@ -59,8 +39,5 @@ router.put('/changestatus', jwtHelpers.verifyJwt, jwtHelpers.getUserMiddleware, 
  */
 router.get('/history', jwtHelpers.verifyJwt, jwtHelpers.getUserMiddleware, techController.getTechnicianHistory);
 
-/**
- * Module exports the router
- * @module
- */
+
 module.exports = router;

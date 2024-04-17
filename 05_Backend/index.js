@@ -1,4 +1,3 @@
-// Importing external dependencies
 const express = require("express");
 const bodyParser = require("body-parser");
 const swaggerJsDoc = require("swagger-jsdoc");
@@ -6,8 +5,8 @@ const swaggerUi = require("swagger-ui-express");
 require("dotenv").config();
 const cors = require("cors")
 
-// Importing database connection function
 const { connectToDatabase } = require("./database/db");
+
 
 // Importing internal routers
 const authRouter = require("./router/authRouter");
@@ -17,7 +16,6 @@ const adminRoutes = require('./router/adminRoutes.js');
 const technicianRoutes = require('./router/technicianRoutes.js');
 const assetRoutes = require('./router/assetRouter.js');
 
-// Initializing the express app
 const app = express();
 
 
@@ -69,7 +67,7 @@ const swaggerDefinition = {
       BearerAuth: {
         type: "http",
         scheme: "Bearer",
-        bearerFormat: "JWT", // Optional, but good to specify if using JWTs
+        bearerFormat: "JWT",
       },
     },
   },
@@ -81,23 +79,17 @@ const swaggerDefinition = {
 };
 
 
-// Options for the swagger docs
+
 const options = {
   swaggerDefinition,
-  // Paths to files containing OpenAPI definitions
   apis: ['./index.js'],
 };
 
-// Initialize swagger-jsdoc -> returns validated swagger spec in json format
 const swaggerSpec = swaggerJsDoc(options);
 
-// Serve swagger docs the way you like (Recommendation: swagger-ui-express)
+// Serve swagger docs
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec)) 
-
-// Using bodyParser middleware to parse JSON requests
 app.use(bodyParser.json());
-
-// Using cors middleware to enable Cross Origin Resource Sharing
 app.use(cors());
 
 // Using the authentication router for all requests starting with "/auth"
@@ -752,14 +744,11 @@ app.use('/asset', assetRoutes)
 
 // Function to start the server and connect to the database
 async function startServerAndDatabase() {
-    // Connecting to the database
     await connectToDatabase();
 
-    // Starting the server
+    // Starting server
     app.listen(process.env.PORT || 3000, () =>
       console.log(`Server live at ${process.env.PORT || 3000}`)
     );
 }
-
-// Calling the function to start the server and connect to the database
 startServerAndDatabase();

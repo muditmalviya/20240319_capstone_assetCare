@@ -33,11 +33,9 @@ function usernameValidator(username) {
   
   /** Validator function for password */
   function passwordValidator(password) {
-    // Check for string
     if (typeof password !== "string") {
       return false;
     }
-    // Check for length
     if (password.length < 6 || password.length > 255) {
       return false;
     }

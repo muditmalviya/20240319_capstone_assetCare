@@ -1,26 +1,6 @@
-/**
- * Express module for handling HTTP requests
- * @const
- */
 const express = require('express');
-
-/**
- * Controller module for issue-related functionalities
- * @const
- */
 const issueController = require('../controllers/issueController');
-
-/**
- * JWT helpers module for authentication and user retrieval
- * @const
- */
 const jwtHelpers = require('../dependencies/jwtHelpers');
-
-/**
- * Express router for defining API routes
- * @type {object}
- * @namespace router
- */
 const router = express.Router();
 
 /**
@@ -48,9 +28,4 @@ router.get('/issues', jwtHelpers.verifyJwt, issueController.getAllByUser);
 // Route to get issues within a date range
 router.get('/issuesD', issueController.getIssuesByDateRange);
 
-
-/**
- * Module exports the router
- * @module
- */
 module.exports = router;

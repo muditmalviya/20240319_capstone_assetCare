@@ -1,26 +1,6 @@
-/**
- * Express module for handling HTTP requests
- * @const
- */
 const express = require('express');
-
-/**
- * Controller module for admin-related functionalities
- * @const
- */
 const adminController = require('../controllers/adminController');
-
-/**
- * JWT helpers module for authentication and user retrieval
- * @const
- */
 const jwtHelpers = require('../dependencies/jwtHelpers');
-
-/**
- * Express router for defining API routes
- * @type {object}
- * @namespace router
- */
 const router = express.Router();
 
 /**
@@ -72,12 +52,8 @@ router.get('/countIssues', jwtHelpers.verifyJwt, jwtHelpers.getUserMiddleware, a
 router.put('/assignIssue', jwtHelpers.verifyJwt, jwtHelpers.getUserMiddleware, adminController.assignIssue);
 router.get('/users', adminController.getUserByUsername);
 
-//leaderboard
+//router for leaderboard
 router.get('/techniciansB', adminController.getAllTechnicians);
 router.get('/operatorsB', adminController.getAllOperators);
 
-/**
- * Module exports the router
- * @module
- */
 module.exports = router;

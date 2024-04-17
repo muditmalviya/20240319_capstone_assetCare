@@ -9,10 +9,10 @@ import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-open-issue-a',
-  standalone: true, // Unsure of what standalone is meant for, typically not used here
-  imports: [CommonModule, RouterLink, FormsModule], // Importing required modules
-  templateUrl: './open-issue-a.component.html', // Template URL for HTML file
-  styleUrls: ['./open-issue-a.component.css'] // Style URLs for CSS file
+  standalone: true,
+  imports: [CommonModule, RouterLink, FormsModule],
+  templateUrl: './open-issue-a.component.html',
+  styleUrls: ['./open-issue-a.component.css'] 
 })
 export class OpenIssueAComponent implements OnInit {
   availtechs: any[] = []; // Array to store available technicians
@@ -22,7 +22,7 @@ export class OpenIssueAComponent implements OnInit {
   assignedIssuesCount: number = 0;
   selectedStatus: string = 'All';
   filteredIssues: any[] = [];
-  selectedIssue: string = ''; // Added property for selected issue
+  selectedIssue: string = '';
   selectedTechnician: { [key: string]: string } = {};
 
   constructor(
@@ -145,13 +145,11 @@ export class OpenIssueAComponent implements OnInit {
               },
               (error) => {
                 console.error('Error assigning technician:', error);
-                // Handle error scenario
               }
             );
         },
         (error) => {
           console.error('Error fetching technician ID:', error);
-          // Handle error scenario
         }
       );
   }
@@ -163,7 +161,7 @@ export class OpenIssueAComponent implements OnInit {
       year: 'numeric',
       hour: 'numeric',
       minute: 'numeric',
-      hour12: true, // Use 12-hour format
+      hour12: true,
     };
     return new Intl.DateTimeFormat('en-US', options).format(date);
   }

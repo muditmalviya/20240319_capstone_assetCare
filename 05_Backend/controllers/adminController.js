@@ -1,19 +1,5 @@
-/**
- * Model for Issue
- * @const
- */
 const Issue = require('../models/issue.model');
-
-/**
- * Model for User
- * @const
- */
 const User = require('../models/user.model');
-
-/**
- * Model for Asset
- * @const
- */
 const Asset = require('../models/asset.model');
 
 /**
@@ -24,9 +10,7 @@ const Asset = require('../models/asset.model');
  */
 exports.getAllOpenIssues = async (req, res) => {
   try {
-    // Check if the user is an admin
     if (req.user.role !== 'admin') {
-      // If not, return a 401 Unauthorized status code
       return res.status(401).json({ message: "Forbidden access. Only for admin permission is granted" });
     }
 
@@ -38,13 +22,9 @@ exports.getAllOpenIssues = async (req, res) => {
 
     // Concatenate the two arrays of issues, with opened issues first
     const allOpenIssues = openedIssues.concat(assignedIssues);
-
-    // Return the concatenated array of issues
     res.status(200).json(allOpenIssues);
   } catch (err) {
-    // Log any errors
     console.error(err);
-    // Return a 500 Internal Server Error status code
     res.status(500).json({ message: 'Internal server error' });
   }
 };
@@ -57,24 +37,17 @@ exports.getAllOpenIssues = async (req, res) => {
  */
 exports.getAllCloseIssues = async (req, res) => {
   try {
-    // Check if the user is an admin
     if (req.user.role !== 'admin') {
-      // If not, return a 401 Unauthorized status code
       return res.status(401).json({ message: "Forbidden access. Only for admin permission is granted" });
     }
-
-    // Find all issues where status is false (closed)
     const issues = await Issue.find({ status: 'Closed' })
       .sort({ timestamp: -1 })
       .populate('user_id', 'username')
       .populate('user_id_tech', 'username');
 
-    // Return the issues
     res.status(200).json(issues);
   } catch (err) {
-    // Log any errors
     console.error(err);
-    // Return a 500 Internal Server Error status code
     res.status(500).json({ message: 'Internal server error' });
   }
 };
@@ -87,21 +60,14 @@ exports.getAllCloseIssues = async (req, res) => {
  */
 exports.getAllAvailableTechnicians = async (req, res) => {
   try {
-    // Check if the user is an admin
     if (req.user.role !== 'admin') {
-      // If not, return a 401 Unauthorized status code
       return res.status(401).json({ message: "Forbidden access. Only for admin permission is granted" });
     }
-
-    // Find all users where role is 'technician' and isAvailable is true
     const technicians = await User.find({ role: 'technician', isAvailable: true });
 
-    // Return the technicians
     res.status(200).json(technicians);
   } catch (err) {
-    // Log any errors
     console.error(err);
-    // Return a 500 Internal Server Error status code
     res.status(500).json({ message: 'Internal server error' });
   }
 };
@@ -109,15 +75,12 @@ exports.getAllAvailableTechnicians = async (req, res) => {
 exports.getUserByUsername = async (req, res) => {
   try {
     const { username } = req.query;
-
-    // Find the user based on the provided username
     const user = await User.findOne({ username });
 
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
 
-    // Return the user
     res.status(200).json({ user });
   } catch (error) {
     console.error('Error fetching user by username:', error);
@@ -136,13 +99,9 @@ exports.getUserByUsername = async (req, res) => {
  */
 exports.assignIssue = async (req, res) => {
   try {
-    // Check if the user is an admin
     if (req.user.role !== 'admin') {
-      // If not, return a 401 Unauthorized status code
       return res.status(401).json({ message: "Forbidden access. Only for admin permission is granted" });
     }
-
-    // Find the user based on the provided username
     const user = await User.findOne({ username: req.body.username });
 
     if (!user) {
@@ -150,7 +109,6 @@ exports.assignIssue = async (req, res) => {
     }
 
     const timestamp_assigned = new Date();
-    // Update the issue with the technician's user_id
     const issue = await Issue.findByIdAndUpdate(
       req.body.issue_id,
       { user_id_tech: user._id, status: 'Assigned', timestamp_assigned},
@@ -164,22 +122,16 @@ exports.assignIssue = async (req, res) => {
       { isAvailable: false },
       { new: true }
     );
-
-    // Return the updated issue and technician
     res.status(200).json({ issue, technician });
   } catch (err) {
-    // Log any errors
     console.error(err);
-    // Return a 500 Internal Server Error status code
     res.status(500).json({ message: 'Internal server error' });
   }
 };
 
 exports.getOpenAssignedIssueCounts = async (req, res) => {
   try {
-    // Check if the user is an admin
     if (req.user.role !== 'admin') {
-      // If not, return a 401 Unauthorized status code
       return res.status(401).json({ message: "Forbidden access. Only for admin permission is granted" });
     }
 
@@ -188,20 +140,15 @@ exports.getOpenAssignedIssueCounts = async (req, res) => {
 
     // Find the number of issues with status "Assigned"
     const assignedCount = await Issue.countDocuments({ status: 'Assigned' });
-
-    // Return the counts
     res.status(200).json({ openedCount, assignedCount });
   } catch (err) {
-    // Log any errors
     console.error(err);
-    // Return a 500 Internal Server Error status code
     res.status(500).json({ message: 'Internal server error' });
   }
 };
 
 exports.getAllTechnicians = async (req, res) => {
   try {
-    // Find all users with the role 'technician'
     const technicians = await User.find({ role: 'technician' }, {username: 1, rewards: 1 });
 
     res.status(200).json(technicians);
@@ -213,7 +160,6 @@ exports.getAllTechnicians = async (req, res) => {
 
 exports.getAllOperators = async (req, res) => {
   try {
-    // Find all users with the role 'technician'
     const operators = await User.find({ role: 'operator' }, {username: 1, rewards: 1 });
 
     res.status(200).json(operators);

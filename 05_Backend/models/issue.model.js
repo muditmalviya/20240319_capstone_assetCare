@@ -14,16 +14,19 @@ const IssueSchema = new mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
+    //on asset which issue is raised
     asset_name:{
         type: String,
         ref: "Asset.name",
         required: true
     },
+    //status of issue
     status: {
         type: String,
         enum: ['Opened', 'Assigned', 'Closed'],
         default: 'Opened'
     },
+    //diffrent fields for issue data
     energy_consumption: {
         type: Number,
         required: true
@@ -52,12 +55,12 @@ const IssueSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    // Timestamp of when the blog post was created
+    // Timestamp of when the issue is created
   timestamp: {
     type: Date,
     default: Date.now
   },
-  // Timestamp of when the issue was assigned
+  // Timestamp of when the issue is assigned
   timestamp_assigned: {
     type: Date,
     default: null

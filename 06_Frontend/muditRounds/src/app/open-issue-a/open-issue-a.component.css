@@ -1,4 +1,4 @@
-/* General styling */
+
 table {
   border-collapse: collapse;
   width: 95%;
@@ -39,8 +39,7 @@ select{
   margin-bottom: 10px;
 }
 select:hover {
-  /* Add your hover effect styles here */
-  background-color: #f0f0f0; /* For example, changing the background color on hover */
+  background-color: #f0f0f0; 
 }
 
 button {
@@ -68,23 +67,23 @@ button:hover {
   margin-top: 25px;
   display: flex;
   gap: 40px;
-  justify-content: center; /* Center the cards horizontally */
-  align-items: center; /* Center the cards vertically */
+  justify-content: center; 
+  align-items: center;
 }
 
 hr {
-  border: none; /* Remove default border */
-  height: 2px; /* Set the height of the line */
-  background-color: #ccc; /* Set the color of the line */
-  margin: 20px 0; /* Set margin above and below the line */
+  border: none; 
+  height: 2px; 
+  background-color: #ccc; 
+  margin: 20px 0; 
 }
 
 .card {
   background-color: lightblue;
-  text-align: center; /* Center the content inside the card */
+  text-align: center;
   border: 1px solid #ccc;
   border-radius: 8px;
-  width: 100px; /* Set a fixed width for the cards */
+  width: 100px;
   padding: 20px;
   box-shadow: 10px 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -97,7 +96,7 @@ hr {
 .title {
   font-size: 15px;
   font-weight: bold;
-  margin-top: 10px; /* Add some space between the number and title */
+  margin-top: 10px; 
 }
 
 .value {
@@ -117,7 +116,6 @@ hr {
 }
 .assign-column {
   width: 250px; 
-  /* Adjust the width as needed */
 }
 
 .assign-container {
@@ -143,12 +141,12 @@ hr {
   }
   
   .card {
-      width: 80%; /* Adjust card width for smaller screens */
-      margin-bottom: 20px; /* Add margin between cards */
+      width: 80%; 
+      margin-bottom: 20px;
   }
 
   .dropdown-toggle button {
-      margin-left: 2%; /* Remove margin for button on smaller screens */
-      margin-top: 10px; /* Add margin on top of button */
+      margin-left: 2%;
+      margin-top: 10px;
   }
 }

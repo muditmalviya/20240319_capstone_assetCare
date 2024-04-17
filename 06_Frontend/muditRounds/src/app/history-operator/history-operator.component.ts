@@ -1,24 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common'; // Importing CommonModule for NgIf, NgFor, etc.
-import { RouterLink } from '@angular/router'; // Not required as it's used within templates directly
-import { ActivatedRoute } from '@angular/router'; // ActivatedRoute is imported but not used
-import { FormsModule } from '@angular/forms'; // Importing FormsModule for ngModel, etc.
+import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-history-operator',
-  standalone: true, // Unsure of what standalone is meant for, typically not used here
-  imports: [CommonModule, RouterLink, FormsModule], // Importing required modules
-  templateUrl: './history-operator.component.html', // Template URL for HTML file
-  styleUrl: './history-operator.component.css' // Style URL for CSS file
+  standalone: true,
+  imports: [CommonModule, RouterLink, FormsModule],
+  templateUrl: './history-operator.component.html',
+  styleUrl: './history-operator.component.css'
 })
 export class HistoryOperatorComponent implements OnInit {
   historys: any[] = []; // Array to store issue history
 
   constructor(
     private http: HttpClient,
-    private route: ActivatedRoute, // ActivatedRoute is imported but not used
+    private route: ActivatedRoute,
     private router: Router
   ) { }
 
@@ -57,7 +57,7 @@ export class HistoryOperatorComponent implements OnInit {
       year: 'numeric',
       hour: 'numeric',
       minute: 'numeric',
-      hour12: true, // Use 12-hour format
+      hour12: true,
     };
     return new Intl.DateTimeFormat('en-US', options).format(date);
   }

@@ -1,14 +1,14 @@
-import { CommonModule } from '@angular/common'; // Importing CommonModule for NgIf, NgFor, etc.
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar'; 
 
 @Component({
   selector: 'app-navbar',
-  standalone: true, // Unsure of what standalone is meant for, typically not used here
-  imports: [CommonModule], // Importing CommonModule
-  templateUrl: './navbar.component.html', // Template URL for HTML file
-  styleUrl: './navbar.component.css' // Style URL for CSS file
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './navbar.component.html',
+  styleUrl: './navbar.component.css'
 })
 export class NavbarComponent implements OnInit {
   menuType: String = 'default'; // Variable to determine menu type (default/verified)
@@ -52,7 +52,7 @@ export class NavbarComponent implements OnInit {
   }
   // Function to handle logout
   logout() {
-    localStorage.removeItem('token'); // Clear user token from local storage
+    localStorage.removeItem('token'); // Clear user token
     this.router.navigate(['/login']); // Redirect to login page
     this.snackBar.open('Logged Out!!', 'Close', { duration: 3000 });
   }
@@ -62,7 +62,7 @@ export class NavbarComponent implements OnInit {
   if (currentUrl === '/profile') {
     this.snackBar.open('Already on main Page', 'Close', { duration: 3000 });
   } else {
-    this.router.navigate(['/profile']); // Replace with your intended fallback URL if needed
+    this.router.navigate(['/profile']);
   }
   }
 

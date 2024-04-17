@@ -1,26 +1,6 @@
-/**
- * Express module for handling HTTP requests
- * @const
- */
 const express = require('express');
-
-/**
- * Express router for defining API routes
- * @type {object}
- * @namespace router
- */
 const router = express.Router();
-
-/**
- * Controller module for asset-related functionalities
- * @const
- */
 const assetController = require('../controllers/assetController');
-
-/**
- * JWT helpers module for authentication and user retrieval
- * @const
- */
 const jwtHelpers = require('../dependencies/jwtHelpers');
 
 /**
@@ -38,8 +18,5 @@ router.post('/postAsset', jwtHelpers.verifyJwt, jwtHelpers.getUserMiddleware, as
 // Route to get assets
 router.get('/assets', assetController.getAssets);
 
-/**
- * Module exports the router
- * @module
- */
+
 module.exports = router;

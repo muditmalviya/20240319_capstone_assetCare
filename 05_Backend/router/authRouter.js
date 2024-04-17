@@ -1,20 +1,5 @@
-/**
- * Express module for handling HTTP requests
- * @const
- */
 const express = require("express");
-
-/**
- * Express router for defining API routes
- * @type {object}
- * @namespace router
- */
 const router = express.Router();
-
-/**
- * Controller module for authentication-related functionalities
- * @const
- */
 const authController = require("../controllers/authController");
 
 /**
@@ -37,28 +22,4 @@ router.post("/signup", authController.register);
  */
 router.post("/signin", authController.login);
 
-/**
- * Route for requesting a password reset
- * @name POST/forget-password
- * @function
- * @memberof router
- * @param {string} '/forget-password' - The endpoint URL for requesting a password reset
- * @param {function} authController.forgetPassword - Controller function for requesting a password reset
- */
-router.post("/forget-password", authController.forgetPassword);
-
-/**
- * Route for resetting password
- * @name PUT/reset-password
- * @function
- * @memberof router
- * @param {string} '/reset-password' - The endpoint URL for resetting password
- * @param {function} authController.resetpassword - Controller function for resetting password
- */
-router.put("/reset-password", authController.resetpassword);
-
-/**
- * Module exports the router
- * @module
- */
 module.exports = router;

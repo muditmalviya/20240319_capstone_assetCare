@@ -12,18 +12,13 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  /* background-color: linear-gradient(135deg, #71b7e6, #9b59b6); */
-  /* color: #fff; */
   padding: 20px;
 }
 
 .container {
   width: 360px;
   height: 390px;
-  /* background-color: #71bfe9; */
-  /* background: linear-gradient(109.6deg, rgb(31, 179, 237) 11.2%, rgb(17, 106, 197) 91.1%); */
   background: linear-gradient(to right, #0acffe 0%, #495aff 100%);
-  /* background: linear-gradient(109.1deg, rgb(42, 132, 201) 14.6%, rgb(47, 249, 233) 108.2%); */
   padding: 20px;
   border-radius: 15px;
   gap: 10px ;
@@ -84,12 +79,12 @@ button {
 }
 
 .btn {
-  display: flex; /* Make the container a flex container */
-  justify-content: space-between; /* Add space between the buttons */
+  display: flex;
+  justify-content: space-between;
 }
 
 .btn button {
-  width: calc(50% - 5px); /* Adjust button width to accommodate space */
+  width: calc(50% - 5px);
   height: 40px;
   /* background: #198989; */
   font-size: 16px;

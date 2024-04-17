@@ -1,14 +1,5 @@
-/**
- * Model for storing issues
- * @const
- */
 const Issue = require('../models/issue.model');
 const User = require('../models/user.model');
-
-/**
- * Model for storing assets
- * @const
- */
 const Asset = require('../models/asset.model');
 
 /**
@@ -18,7 +9,7 @@ const Asset = require('../models/asset.model');
  * @returns {object} - Returns a JSON object containing the saved issue or an error message
  */
 exports.create = async (req, res) => {
-  const { userId } = req.user; // Assuming userId is available in req.user from JWT
+  const { userId } = req.user;
   const {
     asset_name,
     status,
@@ -34,9 +25,9 @@ exports.create = async (req, res) => {
   try {
     // Creating a new issue object
     const issue = new Issue({
-      user_id: userId, // Assigning user ID from JWT
+      user_id: userId,
       asset_name,
-      status: status || 'Opened', // Default to 'opened' if status is not provided
+      status: status || 'Opened',
       energy_consumption,
       hours_of_operation,
       noise_level,
@@ -46,24 +37,23 @@ exports.create = async (req, res) => {
       description
     });
 
-    // Saving the issue to the database
+    
     const savedIssue = await issue.save();
 
-    // If asset_name is related to an Asset model and you want to update it:
+    
     await Asset.findOneAndUpdate(
-      { name: asset_name }, // Filter to find the asset by name
-      { $inc: { num_issues_raised: 1 } } // Increment num_issues_raised by 1
+      { name: asset_name }, 
+      { $inc: { num_issues_raised: 1 } } 
     );
 
     // Incrementing the user's rewards by 2
     await User.findByIdAndUpdate(userId, { $inc: { rewards: 2 } });
 
-    // Responding with the saved issue
+    
     res.status(201).json(savedIssue);
   } catch (err) {
-    // Logging any errors
+    
     console.error(err);
-    // Responding with a 500 Internal Server Error status code
     res.status(500).json({ message: 'Internal server error' });
   }
 };
@@ -79,13 +69,12 @@ exports.getAllByUser = async (req, res) => {
   try {
     // Finding all issues where the user_id matches the user's ID from the JWT
     const issues = await Issue.find({ user_id: req.user.userId })
-                               .sort({ timestamp: -1 }); // Sorting by timestamp in descending order
-    // Responding with the sorted issues
+                               .sort({ timestamp: -1 });
+    
     res.status(200).json(issues);
   } catch (err) {
-    // Logging any errors
+    
     console.error(err);
-    // Responding with a 500 Internal Server Error status code
     res.status(500).json({ message: 'Internal server error' });
   }
 };

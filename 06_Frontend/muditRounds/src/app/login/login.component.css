@@ -19,14 +19,10 @@
     max-width: 350px;
     height: auto;
     background: linear-gradient(to right, #0acffe 0%, #495aff 100%);
-    /* box-shadow: 0 0 50px #0ef; */
     border-radius: 20px;
     padding: 40px;
     overflow: hidden;
   }
-
-  /* #673AB7
-  #5C6BC0 */
   
   .form-wrapper {
     display: flex;

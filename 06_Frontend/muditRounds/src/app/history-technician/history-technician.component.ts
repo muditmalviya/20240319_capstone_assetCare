@@ -1,24 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common'; // Importing CommonModule for NgIf, NgFor, etc.
-import { RouterLink } from '@angular/router'; // Not required as it's used within templates directly
-import { ActivatedRoute } from '@angular/router'; // ActivatedRoute is imported but not used
-import { FormsModule } from '@angular/forms'; // Importing FormsModule for ngModel, etc.
+import { CommonModule } from '@angular/common'; 
+import { RouterLink } from '@angular/router';
+import { ActivatedRoute } from '@angular/router'; 
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-history-technician',
-  standalone: true, // Unsure of what standalone is meant for, typically not used here
-  imports: [CommonModule, RouterLink, FormsModule], // Importing required modules
-  templateUrl: './history-technician.component.html', // Template URL for HTML file
-  styleUrl: './history-technician.component.css' // Style URL for CSS file
+  standalone: true, 
+  imports: [CommonModule, RouterLink, FormsModule],
+  templateUrl: './history-technician.component.html', 
+  styleUrl: './history-technician.component.css'
 })
 export class HistoryTechnicianComponent implements OnInit {
   historys: any[] = []; // Array to store technician's issue history
 
   constructor(
     private http: HttpClient,
-    private route: ActivatedRoute, // ActivatedRoute is imported but not used
+    private route: ActivatedRoute,
     private router: Router
   ) { }
 
@@ -27,11 +27,10 @@ export class HistoryTechnicianComponent implements OnInit {
   }
   
   fetchData() {
-    const token = localStorage.getItem('token'); // Retrieve token from local storage
+    const token = localStorage.getItem('token');
 
     if (token) {
-      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`); // Setting authorization header
-
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
       // Fetch technician's issue history from API
       this.http.get<any[]>('http://localhost:3000/technician/history', { headers: headers })
         .subscribe(
@@ -42,11 +41,11 @@ export class HistoryTechnicianComponent implements OnInit {
             }));
           },
           (error) => {
-            console.error('Error fetching data:', error); // Log error if fetching data fails
+            console.error('Error fetching data:', error);
           }
         );
     } else {
-      console.error('No token provided'); // Log error if no token is found in local storage
+      console.error('No token provided');
     }
   }
   formatTimestamp(timestamp: string): string {
@@ -57,7 +56,7 @@ export class HistoryTechnicianComponent implements OnInit {
       year: 'numeric',
       hour: 'numeric',
       minute: 'numeric',
-      hour12: true, // Use 12-hour format
+      hour12: true,
     };
     return new Intl.DateTimeFormat('en-US', options).format(date);
   }

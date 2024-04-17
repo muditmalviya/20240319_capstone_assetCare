@@ -12,7 +12,6 @@ async function verifyJwt(req, res, next) {
   // Token is of the format Bearer `token` in the headers
   const token = req.headers.authorization?.split(" ")[1];
 
-  // If there is no token
   if (!token) {
     return res.status(401).json({ message: "Unauthorized, no JWT found." });
   }
@@ -28,8 +27,7 @@ async function verifyJwt(req, res, next) {
   }
 }
 
-/** helper function to get the user object from it's ID
- */
+
 async function getUserFromId(userId) {
   const user = await User.findOne({ _id: userId });
 
@@ -61,10 +59,7 @@ async function getUserMiddleware(req, res, next) {
 async function checkRole(req, res, next) {
   try {
     const user = req.body.user_id;
-    console.log("User:", user); // Log user object
-    // if (!user || !user.role || user.role.trim().toLowerCase() !== 'operator') {
-    //   return res.status(403).json({ message: "You don't have rights to do this functionality" });
-    // }
+    console.log("User:", user);
     next();
   } catch (error) {
     console.error("Error in checkRole middleware:", error);
@@ -78,11 +73,8 @@ async function checkRole(req, res, next) {
  */
 async function isAdmin (req, res, next) {
   try {
-    // Assuming req.user.role contains the user's role fetched from the database
     console.log(req.user)
     const userRole = req.user.role;
-
-    // Check if the user's role is admin
     if (userRole !== 'admin') {
       return res.status(403).json({ message: 'Forbidden: only admins can access this route' });
     }

@@ -1,13 +1,4 @@
-/**
- * Model for storing issues
- * @const
- */
 const Issue = require('../models/issue.model');
-
-/**
- * Model for storing users
- * @const
- */
 const User = require('../models/user.model');
 
 /**
@@ -50,7 +41,7 @@ exports.changeStatus = async (req, res) => {
 
         // Calculate the time difference between timestamp_fixed and timestamp_assigned in minutes
         const timestamp_assigned = issue.timestamp_assigned;
-        const timeDifference = Math.abs(timestamp_fixed - timestamp_assigned) / (1000 * 60); // Difference in minutes
+        const timeDifference = Math.abs(timestamp_fixed - timestamp_assigned) / (1000 * 60);
 
         // Initialize reward increment based on time taken
         let rewardIncrement = 0;
@@ -58,9 +49,9 @@ exports.changeStatus = async (req, res) => {
         // Determine reward increment based on time taken
         if (timeDifference < 30) {
             rewardIncrement = 4;
-        } else if (timeDifference >= 30 && timeDifference < 120) { // Between 30 minutes and 2 hours
+        } else if (timeDifference >= 30 && timeDifference < 120) {
             rewardIncrement = 2;
-        } else if (timeDifference >= 240) { // Greater than 4 hours
+        } else if (timeDifference >= 240) {
             rewardIncrement = 1;
         }
 
@@ -82,12 +73,11 @@ exports.changeStatus = async (req, res) => {
  */
 exports.getTechnicianHistory = async (req, res) => {
     try {
-        // Check if the user is a technician
         if (req.user.role !== 'technician') {
             return res.status(403).json({ message: 'Forbidden: only technicians can access this route' });
         }
 
-        // Find all issues where user_id_tech is the technician's id and status is false
+        // Find all issues where user_id_tech is the technician's id and status is closed
         const issues = await Issue.find({ user_id_tech: req.user._id, status: 'Closed' });
         res.status(200).json(issues);
     } catch (err) {
